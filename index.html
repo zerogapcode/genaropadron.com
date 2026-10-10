@@ -10,198 +10,568 @@
 <meta property="og:description" content="Software sólido, claro y pensado para durar.">
 <meta property="og:url" content="https://genaropadron.com/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#111110">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23111110'/%3E%3Cpath d='M8 9l7 7-7 7' fill='none' stroke='%23FFB000' stroke-width='3'/%3E%3Crect x='17' y='21' width='8' height='3' fill='%23FFB000'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0C0C0E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%231C1D22'/%3E%3Crect y='15.5' width='32' height='1' fill='%2308080A'/%3E%3Ctext x='16' y='24' font-family='Arial Narrow,Arial,sans-serif' font-weight='700' font-size='22' text-anchor='middle' fill='%23FFB000'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Condensed:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
-:root{--accent:#FFB000}
+:root{--ac:#FFB000;--bg:#0C0C0E;--bg2:#0F1012;--panel:#141518;--line:#222328;--edge:#26272C;--ink:#F3EFE6;--mid:#C9C4B8;--dim:#A6A299;--faint:#8A867D}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#111110}
-a{color:#ECE7DC}a:hover{color:#FFFFFF}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@keyframes gp-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.gp-cursor{animation:gp-blink 1.1s steps(1) infinite}
-@media (prefers-reduced-motion: reduce){.gp-cursor{animation:none}html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Instrument Sans','Helvetica Neue',sans-serif;font-size:18px;line-height:1.6;overflow-x:hidden}
+a{color:var(--ink)}
+a:hover{color:#FFFFFF}
+a:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+p,h1,h2{margin:0}
+.wrap{max-width:1344px;margin:0 auto;padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.disp{font-family:'Big Shoulders Display','Arial Narrow',sans-serif}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+.label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.h2{font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:900;font-size:clamp(54px,7vw,108px);line-height:.88;text-transform:uppercase;color:var(--ink)}
+[hidden]{display:none !important}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Carcasa del tablero, con tornillos en las esquinas */
+.hs{position:relative;background-color:var(--panel);border:1px solid var(--edge);border-radius:12px;background-image:radial-gradient(circle at 10px 10px,#34353B 0 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 10px) 10px,#34353B 0 2.5px,transparent 3px),radial-gradient(circle at 10px calc(100% - 10px),#34353B 0 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 10px) calc(100% - 10px),#34353B 0 2.5px,transparent 3px)}
+
+/* Paletas */
+.row{display:flex;gap:.06em}
+.fl{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:none;width:.72em;height:1.12em;border-radius:.06em;background:#1C1D22;font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;line-height:1;overflow:hidden;box-shadow:inset 0 -.05em 0 rgba(0,0,0,.45),0 .02em .05em rgba(0,0,0,.7)}
+.fl::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.fl::after{content:"";position:absolute;left:0;right:0;top:50%;height:max(1px,.02em);margin-top:-.01em;background:#08080A;z-index:3;pointer-events:none}
+.fl-c{position:relative;z-index:1;font-size:.9em;transform:translateY(.02em);white-space:pre}
+.fl-f{position:absolute;left:0;right:0;top:0;height:50%;background:#2A2B31;transform-origin:50% 100%;transform:perspective(3em) rotateX(-88deg);z-index:2}
+.flb{appearance:none;-webkit-appearance:none;border:0;padding:0;margin:0;background:none;color:inherit;font:inherit;cursor:pointer;display:inline-flex;border-radius:.06em}
+.flb:hover .fl{background:#27282E}
+
+.lamp{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;background:var(--ac);animation:gplamp 1.6s steps(1) infinite}
+@keyframes gplamp{0%,60%{opacity:1}61%,100%{opacity:.25}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:6px;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btn-ac{background:var(--ac);color:var(--bg);border:0}
+.btn-ac:hover{color:var(--bg);filter:brightness(1.08)}
+.btn-ln{background:transparent;color:var(--ink);border:1px solid #4A4B52;font-weight:500}
+.btn-ln:hover{border-color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:13px;font-weight:500}
+
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none}
+
+.mq{display:flex;width:max-content;animation:gpmq 40s linear infinite}
+@keyframes gpmq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.chip{padding:8px 12px;border:1px solid #2E2F35;border-radius:999px;color:var(--mid)}
+
+.svb{display:flex;align-items:center;gap:18px;width:100%;min-height:76px;padding:14px 22px;border:1px solid #2E2F35;border-radius:8px;background:transparent;color:var(--ink);text-align:left;font:inherit;cursor:pointer}
+.svb:hover{border-color:#5A5B62}
+.svb .num{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--faint)}
+.svb .nm{flex:1 1 auto;font-family:'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;font-size:clamp(24px,2vw,30px);line-height:1.05;text-transform:uppercase}
+.svb[aria-pressed="true"]{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+.svb[aria-pressed="true"] .num{color:var(--bg)}
+
+.prow{display:flex;align-items:center;gap:1.2em;width:100%;padding:.6em .5em;border:0;border-radius:6px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.prow:hover,.prow[aria-expanded="true"]{background:#17181C}
+.prow .chev{flex:none;transition:transform .2s ease}
+.prow[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.pcol{flex:none}
+.phead span{flex:none}
+.phead span span{font-size:11px;letter-spacing:.14em}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.lamp,.mq{animation:none}.prow .chev{transition:none}}
 </style>
 </head>
 <body>
-<div style="min-height: 100vh; background: #111110; color: #ECE7DC; font-family: 'IBM Plex Sans', 'Helvetica Neue', sans-serif; font-size: 18px; line-height: 1.6">
 
-<!-- Navegación -->
-<header style="border-bottom: 1px solid #2A2925">
-<nav style="max-width: 1200px; margin: 0 auto; padding: 20px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="#inicio" style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; text-decoration: none; color: #ECE7DC; letter-spacing: 0.02em">
-<span style="color: var(--accent)">&gt;</span> genaropadron<span style="color: #9C978C">.com</span>
+<header style="border-bottom:1px solid var(--line)">
+<nav aria-label="Principal" class="wrap" style="padding-top:14px;padding-bottom:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px">
+<a href="#inicio" style="display:inline-flex;align-items:center;gap:12px;min-height:44px;text-decoration:none">
+<span aria-hidden="true" style="display:inline-flex;gap:2px;font-size:24px"><span class="fl"><span class="fl-c">G</span></span><span class="fl" style="color:var(--ac)"><span class="fl-c">P</span></span></span>
+<span class="mono" style="font-size:15px;font-weight:500;letter-spacing:.02em">genaropadron<span style="color:var(--faint)">.com</span></span>
 </a>
-<div style="display: flex; flex-wrap: wrap; gap: 4px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 14px">
-<a href="#sobre" style="text-decoration: none; padding: 12px 10px">sobre-mí</a>
-<a href="#servicios" style="text-decoration: none; padding: 12px 10px">servicios</a>
-<a href="#proyectos" style="text-decoration: none; padding: 12px 10px">proyectos</a>
-<a href="#contacto" style="text-decoration: none; padding: 12px 16px; border: 1px solid var(--accent); border-radius: 2px; color: var(--accent)">contacto</a>
+<div class="nav mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:13px;letter-spacing:.1em;text-transform:uppercase">
+<a href="#sobre">Sobre mí</a>
+<a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#contacto" style="padding:0 18px;margin-left:6px;border-radius:6px;font-weight:600;background:var(--ac);color:var(--bg)">Contacto</a>
 </div>
 </nav>
 </header>
 
-<!-- Hero -->
-<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 10vw, 128px) clamp(16px, 4vw, 48px) clamp(64px, 8vw, 112px); display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
-<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent)">Desarrollador de software · Generación X</p>
-<h1 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 9vw, 120px); line-height: 0.92; letter-spacing: -0.02em; color: #F5F1E8">Genaro<br>Padrón</h1>
-<p style="margin: 0; max-width: 560px; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.55; color: #C9C4B8">Crecí con la computación personal y nunca dejé de construir. Diseño y desarrollo software sólido, claro y pensado para durar: sin modas, sin humo, con oficio.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
-<a href="#proyectos" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; background: var(--accent); color: #111110; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; border-radius: 2px">Ver proyectos
-<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+<main>
+<!-- Portada -->
+<section id="inicio" class="wrap" style="padding-top:clamp(36px,5vw,80px);padding-bottom:clamp(44px,5vw,72px);display:flex;flex-direction:column;gap:clamp(22px,2.6vw,36px)">
+<div class="label" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;letter-spacing:.16em">
+<span style="display:inline-flex;align-items:center;gap:10px"><span class="lamp" style="box-shadow:0 0 10px var(--ac)"></span>Desarrollador de software · Generación X</span>
+<span>Tablero n.º 01 · Salidas</span>
+</div>
+<h1 class="sr">Genaro Padrón, desarrollador de software</h1>
+<div style="display:flex;flex-wrap:wrap;gap:clamp(24px,3.4vw,56px);align-items:stretch">
+<div class="hs" style="flex:0 1 auto;min-width:0;display:flex;flex-direction:column;gap:.08em;padding:clamp(16px,2vw,30px);font-size:clamp(50px,11.4vw,168px);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 30px 70px rgba(0,0,0,.45)">
+<div class="row" data-flaps="n1" data-len="6" data-text="GENARO" data-spin style="color:var(--ink)"></div>
+<div class="row" data-flaps="n2" data-len="6" data-text="PADRÓN" data-spin style="color:var(--ink)"></div>
+</div>
+<div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<div style="display:flex;flex-direction:column;gap:22px">
+<p class="disp" style="font-weight:800;font-size:clamp(30px,2.8vw,42px);line-height:1;text-transform:uppercase;letter-spacing:.01em">Software sólido, claro y pensado para durar.</p>
+<p style="font-size:clamp(17px,1.35vw,20px);color:var(--mid)">Crecí con la computación personal y nunca dejé de construir. Diseño y desarrollo software sin modas, sin humo, con oficio.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a href="#proyectos" class="btn btn-ac">Ver proyectos
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 </a>
-<a href="#contacto" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #4A4842; color: #ECE7DC; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; border-radius: 2px">Hablemos</a>
+<a href="#contacto" class="btn btn-ln">Hablemos</a>
 </div>
 </div>
-
-<!-- Terminal -->
-<div style="flex: 1 1 380px; min-width: 0; max-width: 520px; background: #0A0A09; border: 1px solid #2A2925; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.45)">
-<div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #2A2925; background: #161614">
-<div style="display: flex; gap: 8px">
-<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3833"></span>
-<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3833"></span>
-<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3833"></span>
+<div class="hs" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;padding:20px 24px;border-radius:10px">
+<div class="label" style="display:flex;flex-direction:column;gap:6px">
+<span>Hora local</span>
+<span style="display:inline-flex;align-items:center;gap:8px;color:var(--ink)"><span class="lamp"></span>Disponible para proyectos</span>
 </div>
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8A7F">genaro@padron: ~</span>
-<span style="width: 49px"></span>
-</div>
-<div style="padding: 24px 24px 28px; font-family: 'IBM Plex Mono', monospace; font-size: 15px; line-height: 1.75; color: #D8D3C7">
-<div><span style="color: var(--accent)">$</span> whoami</div>
-<div style="color: #A9A498">genaro padrón — desarrollador de software</div>
-<div style="height: 12px"></div>
-<div><span style="color: var(--accent)">$</span> cat principios.txt</div>
-<div style="color: #A9A498">01  código que se entiende</div>
-<div style="color: #A9A498">02  soluciones que duran</div>
-<div style="color: #A9A498">03  entregar, no prometer</div>
-<div style="height: 12px"></div>
-<div><span style="color: var(--accent)">$</span> status</div>
-<div style="color: #A9A498">disponible para nuevos proyectos <span style="color: var(--accent)">●</span></div>
-<div style="height: 12px"></div>
-<div><span style="color: var(--accent)">$</span> <span class="gp-cursor" style="display: inline-block; width: 10px; height: 18px; vertical-align: -3px; background: var(--accent)"></span></div>
+<div class="row" aria-hidden="true" data-flaps="clk" data-len="8" style="font-size:clamp(24px,2.2vw,32px);color:var(--ac)"></div>
 </div>
 </div>
+</div>
+<div class="hs" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;padding:16px clamp(14px,2vw,26px);border-radius:10px">
+<span class="label" style="display:inline-flex;align-items:center;gap:10px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.8" stroke-linecap="square"><path d="M3 10v4h4l6 5V5L7 10H3z"/><path d="M17 8.5a5 5 0 0 1 0 7"/></svg>
+En pantalla</span>
+<span class="sr" id="phrase-sr">Código que se entiende</span>
+<div class="row" aria-hidden="true" data-flaps="tk" data-len="22" data-text="CÓDIGO QUE SE ENTIENDE" style="font-size:clamp(15px,2.3vw,34px);color:var(--ac)"></div>
+<button type="button" id="next" class="btn btn-ln btn-sm">Siguiente
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
+<p class="mono" style="font-size:13px;color:var(--faint)">↳ Toca cualquier letra del nombre para hacerla girar.</p>
 </section>
 
+<!-- Franja -->
+<div aria-hidden="true" style="overflow:hidden;border-top:1px solid #000;border-bottom:1px solid #000;background:var(--ac);color:var(--bg)">
+<div class="mq disp" style="padding:14px 0;font-weight:900;font-size:clamp(28px,3.4vw,48px);line-height:1;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap">
+<span style="padding-right:.8em">Desarrollo web &#160;/&#160; Software a medida &#160;/&#160; Automatización &#160;/&#160; Integraciones &#160;/&#160; Consultoría técnica &#160;/&#160; Desarrollo web &#160;/&#160; Software a medida &#160;/&#160; Automatización &#160;/&#160; Integraciones &#160;/&#160; Consultoría técnica &#160;/</span>
+<span style="padding-right:.8em">Desarrollo web &#160;/&#160; Software a medida &#160;/&#160; Automatización &#160;/&#160; Integraciones &#160;/&#160; Consultoría técnica &#160;/&#160; Desarrollo web &#160;/&#160; Software a medida &#160;/&#160; Automatización &#160;/&#160; Integraciones &#160;/&#160; Consultoría técnica &#160;/</span>
+</div>
+</div>
+
 <!-- Sobre mí -->
-<section id="sobre" style="border-top: 1px solid #2A2925">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 48px">
-<div style="flex: 1 1 280px; min-width: 0">
-<p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--accent)">01 /</p>
-<h2 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.01em; color: #F5F1E8">Sobre mí</h2>
+<section id="sobre">
+<div class="wrap" style="padding-top:clamp(64px,8vw,120px);padding-bottom:clamp(64px,8vw,120px);display:flex;flex-wrap:wrap;gap:48px">
+<div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<p class="kicker">01 / Pasajero frecuente</p>
+<h2 class="h2">Sobre mí</h2>
 </div>
-<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px; color: #C9C4B8; font-size: 19px">
-<p style="margin: 0; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.4; color: #ECE7DC">Soy de la generación que vio nacer la computadora personal, el módem y la web. Esa curiosidad de entonces es la misma con la que hoy escribo software.</p>
-<p style="margin: 0">Llevo [AÑOS] años desarrollando software para [TIPO DE CLIENTES / SECTORES]. Me interesa resolver problemas reales con herramientas probadas, y adoptar lo nuevo cuando de verdad suma.</p>
-<p style="margin: 0">Trabajo directo con quien necesita el resultado: escucho, propongo, construyo y me quedo hasta que funciona. [AGREGA AQUÍ UNA LÍNEA PERSONAL: DE DÓNDE ERES, QUÉ TE MUEVE.]</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; margin-top: 16px; background: #2A2925; border: 1px solid #2A2925">
-<div style="background: #111110; padding: 22px 20px">
-<div style="font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 40px; font-weight: 700; line-height: 1; color: #F5F1E8">[AÑOS]</div>
-<div style="margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #9C978C">años programando</div>
+<div style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px;font-size:19px;color:var(--mid)">
+<p style="font-size:clamp(23px,2.3vw,31px);line-height:1.35;color:var(--ink)">Soy de la generación que vio nacer la computadora personal, el módem y la web. Esa curiosidad de entonces es la misma con la que hoy escribo software.</p>
+<p>Llevo [AÑOS] años desarrollando software para [TIPO DE CLIENTES / SECTORES]. Me interesa resolver problemas reales con herramientas probadas, y adoptar lo nuevo cuando de verdad suma.</p>
+<p>Trabajo directo con quien necesita el resultado: escucho, propongo, construyo y me quedo hasta que funciona. [AGREGA AQUÍ UNA LÍNEA PERSONAL: DE DÓNDE ERES, QUÉ TE MUEVE.]</p>
+<div class="hs" data-board="about" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:12px;padding:26px;border-radius:10px">
+<div style="display:flex;flex-direction:column;gap:10px;padding:4px">
+<span class="sr">[AÑOS] años programando</span>
+<div class="row" aria-hidden="true" data-flaps="s1" data-len="8" data-align="c" data-text="[AÑOS]" style="font-size:clamp(24px,2.3vw,32px);color:var(--ink)"></div>
+<span class="label" style="letter-spacing:.12em" aria-hidden="true">años programando</span>
 </div>
-<div style="background: #111110; padding: 22px 20px">
-<div style="font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 40px; font-weight: 700; line-height: 1; color: #F5F1E8">[N]</div>
-<div style="margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #9C978C">proyectos entregados</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:4px">
+<span class="sr">[N] proyectos entregados</span>
+<div class="row" aria-hidden="true" data-flaps="s2" data-len="8" data-align="c" data-text="[N]" style="font-size:clamp(24px,2.3vw,32px);color:var(--ink)"></div>
+<span class="label" style="letter-spacing:.12em" aria-hidden="true">proyectos entregados</span>
 </div>
-<div style="background: #111110; padding: 22px 20px">
-<div style="font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 40px; font-weight: 700; line-height: 1; color: #F5F1E8">[CIUDAD]</div>
-<div style="margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #9C978C">base · trabajo remoto</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:4px">
+<span class="sr">[CIUDAD], base y trabajo remoto</span>
+<div class="row" aria-hidden="true" data-flaps="s3" data-len="8" data-align="c" data-text="[CIUDAD]" style="font-size:clamp(24px,2.3vw,32px);color:var(--ink)"></div>
+<span class="label" style="letter-spacing:.12em" aria-hidden="true">base · trabajo remoto</span>
 </div>
+</div>
+<div class="mono" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase">
+<span style="margin-right:6px;color:var(--faint)">Escalas del viaje</span>
+<span class="chip">PC personal</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip">Módem</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip">Web</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip">Móvil</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip">Nube</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip">IA</span><span aria-hidden="true" style="color:#55565C">→</span>
+<span class="chip" style="border:0;font-weight:600;background:var(--ac);color:var(--bg)">Tu proyecto</span>
 </div>
 </div>
 </div>
 </section>
 
 <!-- Servicios -->
-<section id="servicios" style="border-top: 1px solid #2A2925; background: #161614">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
-<div>
-<p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--accent)">02 /</p>
-<h2 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.01em; color: #F5F1E8">Qué hago</h2>
+<section id="servicios" style="border-top:1px solid var(--line);background:var(--bg2)">
+<div class="wrap" style="padding-top:clamp(64px,8vw,120px);padding-bottom:clamp(64px,8vw,120px);display:flex;flex-direction:column;gap:44px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<p class="kicker">02 / Destinos</p>
+<h2 class="h2">Qué hago</h2>
 </div>
-<p style="margin: 0; max-width: 420px; color: #A9A498">De la idea al sistema en producción. Elijo la herramienta según el problema, no según la tendencia.</p>
+<p style="max-width:440px;color:var(--dim)">De la idea al sistema en producción. Elijo la herramienta según el problema, no según la tendencia.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
-<div style="background: #111110; border: 1px solid #2A2925; border-radius: 4px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
-<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="square"><rect x="3" y="4" width="18" height="16"></rect><path d="M3 9h18M7 13l3 2-3 2M12 17h5"></path></svg>
-<h3 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.15; color: #F5F1E8">Desarrollo web</h3>
-<p style="margin: 0; font-size: 16px; color: #A9A498">Sitios y aplicaciones web rápidas, accesibles y fáciles de mantener.</p>
+<div style="display:flex;flex-wrap:wrap;gap:28px;align-items:stretch">
+<div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<button type="button" class="svb" data-svc="0" aria-pressed="true"><span class="num">01</span><span class="nm">Desarrollo web</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+<button type="button" class="svb" data-svc="1" aria-pressed="false"><span class="num">02</span><span class="nm">Software a medida</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+<button type="button" class="svb" data-svc="2" aria-pressed="false"><span class="num">03</span><span class="nm">Automatización e integraciones</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+<button type="button" class="svb" data-svc="3" aria-pressed="false"><span class="num">04</span><span class="nm">Consultoría técnica</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
 </div>
-<div style="background: #111110; border: 1px solid #2A2925; border-radius: 4px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
-<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="square"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"></path></svg>
-<h3 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.15; color: #F5F1E8">Software a medida</h3>
-<p style="margin: 0; font-size: 16px; color: #A9A498">Sistemas hechos para cómo trabaja tu negocio, no al revés.</p>
+<div class="hs" data-board="svc" style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px;padding:clamp(20px,2.6vw,36px);box-shadow:0 30px 70px rgba(0,0,0,.35)">
+<div class="label" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px">
+<span>Destino <span id="svc-num">01</span> / 04</span>
+<span style="display:inline-flex;align-items:center;gap:8px;color:var(--ink)"><span class="lamp"></span>Embarque abierto</span>
 </div>
-<div style="background: #111110; border: 1px solid #2A2925; border-radius: 4px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
-<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="square"><circle cx="6" cy="6" r="2.5"></circle><circle cx="18" cy="18" r="2.5"></circle><path d="M8.5 6H15a3 3 0 0 1 3 3v6.5M15.5 18H9a3 3 0 0 1-3-3V8.5"></path></svg>
-<h3 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.15; color: #F5F1E8">Automatización e integraciones</h3>
-<p style="margin: 0; font-size: 16px; color: #A9A498">Conecto herramientas y elimino tareas repetitivas con APIs y scripts.</p>
+<span class="sr" id="svc-sr" aria-live="polite">Desarrollo web</span>
+<div aria-hidden="true" style="display:flex;flex-direction:column;gap:14px">
+<div class="row" data-flaps="sv1" data-len="17" data-text="DESARROLLO WEB" style="font-size:clamp(18px,2.9vw,46px);color:var(--ink)"></div>
+<div class="row" data-flaps="sv2" data-len="20" data-text="RÁPIDO · ACCESIBLE" style="font-size:clamp(14px,1.8vw,28px);color:var(--ac)"></div>
 </div>
-<div style="background: #111110; border: 1px solid #2A2925; border-radius: 4px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px">
-<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="square"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path><circle cx="12" cy="12" r="5"></circle><path d="M12 10v2l1.5 1.5"></path></svg>
-<h3 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.15; color: #F5F1E8">Consultoría técnica</h3>
-<p style="margin: 0; font-size: 16px; color: #A9A498">Arquitectura, revisión de código y decisiones técnicas con criterio.</p>
+<div style="height:1px;background:var(--edge)"></div>
+<div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px 24px">
+<div style="flex:none;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border:1px solid #2E2F35;border-radius:10px">
+<svg data-icon="0" aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.6" stroke-linecap="square"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18M7 13l3 2-3 2M12 17h5"/></svg>
+<svg data-icon="1" hidden aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.6" stroke-linecap="square"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg>
+<svg data-icon="2" hidden aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.6" stroke-linecap="square"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 3 3v6.5M15.5 18H9a3 3 0 0 1-3-3V8.5"/></svg>
+<svg data-icon="3" hidden aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="1.6" stroke-linecap="square"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><path d="M12 10v2l1.5 1.5"/></svg>
+</div>
+<div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<p id="svc-desc" style="font-size:clamp(18px,1.5vw,22px);line-height:1.5;color:#E4DFD4">Sitios y aplicaciones web rápidas, accesibles y fáciles de mantener.</p>
+<a href="#contacto" class="mono" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ac)">Reservar este destino
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</a>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 
 <!-- Proyectos -->
-<section id="proyectos" style="border-top: 1px solid #2A2925">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 48px">
-<div>
-<p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--accent)">03 /</p>
-<h2 style="margin: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.01em; color: #F5F1E8">Proyectos</h2>
+<section id="proyectos" style="border-top:1px solid var(--line)">
+<div class="wrap" style="padding-top:clamp(64px,8vw,120px);padding-bottom:clamp(64px,8vw,120px);display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<p class="kicker">03 / Salidas recientes</p>
+<h2 class="h2">Proyectos</h2>
 </div>
-<div style="display: flex; flex-direction: column; border-top: 1px solid #2A2925">
-<a href="#" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; padding: 32px 0; border-bottom: 1px solid #2A2925; text-decoration: none; color: #ECE7DC">
-<span style="flex: 0 0 64px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #9C978C">[AÑO]</span>
-<span style="flex: 1 1 280px; min-width: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; line-height: 1.1; color: #F5F1E8">[NOMBRE DEL PROYECTO]</span>
-<span style="flex: 2 1 320px; min-width: 0; font-size: 16px; color: #A9A498">[Qué problema resolvió y para quién, en una línea.]</span>
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent)">[TECNOLOGÍAS] ↗</span>
-</a>
-<a href="#" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; padding: 32px 0; border-bottom: 1px solid #2A2925; text-decoration: none; color: #ECE7DC">
-<span style="flex: 0 0 64px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #9C978C">[AÑO]</span>
-<span style="flex: 1 1 280px; min-width: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; line-height: 1.1; color: #F5F1E8">[NOMBRE DEL PROYECTO]</span>
-<span style="flex: 2 1 320px; min-width: 0; font-size: 16px; color: #A9A498">[Qué problema resolvió y para quién, en una línea.]</span>
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent)">[TECNOLOGÍAS] ↗</span>
-</a>
-<a href="#" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; padding: 32px 0; border-bottom: 1px solid #2A2925; text-decoration: none; color: #ECE7DC">
-<span style="flex: 0 0 64px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #9C978C">[AÑO]</span>
-<span style="flex: 1 1 280px; min-width: 0; font-family: 'IBM Plex Sans Condensed', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; line-height: 1.1; color: #F5F1E8">[NOMBRE DEL PROYECTO]</span>
-<span style="flex: 2 1 320px; min-width: 0; font-size: 16px; color: #A9A498">[Qué problema resolvió y para quién, en una línea.]</span>
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent)">[TECNOLOGÍAS] ↗</span>
-</a>
+<button type="button" id="reflip" class="btn btn-ln btn-sm" style="min-height:48px;padding:0 18px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M20 11a8 8 0 0 0-14.5-4.5M4 4v3h3M4 13a8 8 0 0 0 14.5 4.5M20 20v-3h-3"/></svg>
+Actualizar tablero</button>
+</div>
+<div class="hs" data-board="proj" style="padding:clamp(14px,2vw,28px);box-shadow:0 30px 70px rgba(0,0,0,.4)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 20px;padding:4px 8px 18px">
+<span class="disp" style="display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:30px;line-height:1;text-transform:uppercase;letter-spacing:.04em;color:var(--ac)">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21.5 4.5L2.5 11l7 2.5 2.5 7z"/><path d="M9.5 13.5l5-4"/></svg>
+Salidas</span>
+<span class="label" style="letter-spacing:.12em">Toca una salida para ver el detalle</span>
+</div>
+<div style="overflow-x:auto">
+<div id="proj-list" style="min-width:max-content;font-size:clamp(14px,1.55vw,22px)">
+<div class="phead mono" aria-hidden="true" style="display:flex;align-items:center;gap:1.2em;padding:0 .5em .5em;color:var(--faint)">
+<span style="width:3.84em"><span>AÑO</span></span>
+<span style="width:3.84em"><span>VUELO</span></span>
+<span style="width:12.42em"><span>DESTINO</span></span>
+<span style="width:10.86em"><span>TECNOLOGÍA</span></span>
+<span style="width:6.96em"><span>ESTADO</span></span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 
 <!-- Contacto -->
-<section id="contacto" style="border-top: 1px solid #2A2925; background: #161614">
-<div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 10vw, 144px) clamp(16px, 4vw, 48px); display: flex; flex-direction: column; gap: 32px">
-<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--accent)">04 / contacto</p>
-<h2 style="margin: 0; max-width: 900px; font-family: 'IBM Plex Sans Condensed', sans-serif; font-weight: 700; font-size: clamp(44px, 7vw, 96px); line-height: 0.98; letter-spacing: -0.02em; color: #F5F1E8">¿Tienes un proyecto en mente? Hablemos.</h2>
-<a href="mailto:[CORREO]@genaropadron.com" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; min-height: 48px; font-family: 'IBM Plex Mono', monospace; font-size: clamp(18px, 2.2vw, 28px); font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 6px; overflow-wrap: anywhere">[CORREO]@genaropadron.com</a>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 28px; padding-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 15px">
-<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">GitHub ↗</a>
-<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">LinkedIn ↗</a>
-<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; text-decoration: none">[OTRA RED] ↗</a>
+<section id="contacto" style="border-top:1px solid var(--line);background:var(--bg2)">
+<div class="wrap" style="padding-top:clamp(72px,9vw,140px);padding-bottom:clamp(72px,9vw,140px);display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:18px">
+<p class="kicker">04 / Puerta de embarque</p>
+<h2 class="h2" style="max-width:1100px;font-size:clamp(54px,8.4vw,132px)">¿Tienes un proyecto en mente?</h2>
+<p style="max-width:560px;font-size:clamp(18px,1.5vw,21px);color:var(--mid)">Escríbelo en el tablero y mándamelo. Yo me encargo del resto.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:stretch">
+<div class="hs" data-board="contact" aria-hidden="true" style="flex:0 1 auto;min-width:0;display:flex;flex-direction:column;gap:.12em;padding:clamp(14px,2vw,26px);font-size:clamp(14px,2.7vw,38px);box-shadow:0 30px 70px rgba(0,0,0,.4);color:var(--ink)">
+<div class="row" data-flaps="m0" data-len="22" data-text="HOLA GENARO,"></div>
+<div class="row" data-flaps="m1" data-len="22" data-text="TENGO UN PROYECTO"></div>
+<div class="row" data-flaps="m2" data-len="22" data-text="¿HABLAMOS?"></div>
+</div>
+<div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<label for="gp-msg" class="label" style="display:flex;justify-content:space-between;gap:12px"><span>Tu mensaje</span><span><span id="msg-count">0</span> / 66</span></label>
+<textarea id="gp-msg" maxlength="66" rows="3" placeholder="Hola Genaro, necesito una web para…" style="width:100%;min-height:128px;padding:14px 16px;border:1px solid #3A3B41;border-radius:8px;background:var(--panel);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.5;resize:vertical"></textarea>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a id="send" href="mailto:[CORREO]@genaropadron.com" class="btn btn-ac">Enviar por correo
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</a>
+<button type="button" id="clear" class="btn btn-ln" style="padding:0 20px">Borrar</button>
+</div>
+<div style="height:1px;margin-top:10px;background:var(--edge)"></div>
+<a href="mailto:[CORREO]@genaropadron.com" class="mono" style="align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font-size:clamp(16px,1.5vw,20px);font-weight:500;text-decoration:none;overflow-wrap:anywhere;color:var(--ac)">[CORREO]@genaropadron.com</a>
+<div class="mono" style="display:flex;flex-wrap:wrap;gap:4px 24px;font-size:14px">
+<a href="#" style="display:inline-flex;align-items:center;min-height:44px;text-decoration:none">GitHub ↗</a>
+<a href="#" style="display:inline-flex;align-items:center;min-height:44px;text-decoration:none">LinkedIn ↗</a>
+<a href="#" style="display:inline-flex;align-items:center;min-height:44px;text-decoration:none">[OTRA RED] ↗</a>
+</div>
+</div>
 </div>
 </div>
 </section>
+</main>
 
-<!-- Pie -->
-<footer style="border-top: 1px solid #2A2925">
-<div style="max-width: 1200px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #9C978C">
+<footer style="border-top:1px solid var(--line)">
+<div class="wrap label" style="padding-top:26px;padding-bottom:26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;letter-spacing:.1em;color:var(--faint)">
 <span>© 2026 Genaro Padrón</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><span class="lamp"></span>Fin del tablero · Gracias por viajar</span>
 <span>genaropadron.com</span>
 </div>
 </footer>
 
-</div>
+<script>
+(function () {
+  // ---- Contenido editable ----
+  var EMAIL = '[CORREO]@genaropadron.com';
+  var PHRASES = ['CÓDIGO QUE SE ENTIENDE', 'SOLUCIONES QUE DURAN', 'ENTREGAR, NO PROMETER', 'SIN MODAS · SIN HUMO', 'DESDE LA ERA DEL MÓDEM', 'DISPONIBLE: HABLEMOS'];
+  var SERVICES = [
+    { name: 'Desarrollo web', flap: 'DESARROLLO WEB', tag: 'RÁPIDO · ACCESIBLE', desc: 'Sitios y aplicaciones web rápidas, accesibles y fáciles de mantener.' },
+    { name: 'Software a medida', flap: 'SOFTWARE A MEDIDA', tag: 'PARA TU NEGOCIO', desc: 'Sistemas hechos para cómo trabaja tu negocio, no al revés.' },
+    { name: 'Automatización e integraciones', flap: 'AUTOMATIZACIÓN', tag: 'ADIÓS A LO REPETIDO', desc: 'Conecto herramientas y elimino tareas repetitivas con APIs y scripts.' },
+    { name: 'Consultoría técnica', flap: 'CONSULTORÍA', tag: 'DECIDIR CON CRITERIO', desc: 'Arquitectura, revisión de código y decisiones técnicas con criterio.' }
+  ];
+  // Máximo por columna: año 5, vuelo 5, destino 16, tecnología 14, estado 9 caracteres.
+  var PROJECTS = [
+    { year: '[AÑO]', code: 'GP-01', dest: '[PROYECTO 1]', tech: '[TECNOLOGÍAS]', st: 'ENTREGADO', desc: '[Qué problema resolvió y para quién, en una línea.]', url: '#' },
+    { year: '[AÑO]', code: 'GP-02', dest: '[PROYECTO 2]', tech: '[TECNOLOGÍAS]', st: 'ENTREGADO', desc: '[Qué problema resolvió y para quién, en una línea.]', url: '#' },
+    { year: '[AÑO]', code: 'GP-03', dest: '[PROYECTO 3]', tech: '[TECNOLOGÍAS]', st: 'ENTREGADO', desc: '[Qué problema resolvió y para quién, en una línea.]', url: '#' },
+    { year: '[AÑO]', code: 'GP-04', dest: '[PROYECTO 4]', tech: '[TECNOLOGÍAS]', st: 'ENTREGADO', desc: '[Qué problema resolvió y para quién, en una línea.]', url: '#' }
+  ];
+  var DEF_MSG = ['HOLA GENARO,', 'TENGO UN PROYECTO', '¿HABLAMOS?'];
+  var TICK_MS = 55;
+
+  // ---- Motor de paletas ----
+  var F = " ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚÜ0123456789:.,-·/!?¿¡[]@&'";
+  var L = F.length;
+  var KF = [{ transform: 'perspective(3em) rotateX(0deg)' }, { transform: 'perspective(3em) rotateX(-88deg)' }];
+  var rm = false;
+  try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  var B = {};
+  var timer = null;
+
+  function rand(n) { return Math.floor(Math.random() * n); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+
+  function fit(text, len, al) {
+    var a = Array.from(String(text || '').toUpperCase()).map(function (ch) { return F.indexOf(ch) >= 0 ? ch : ' '; }).slice(0, len);
+    var pad = len - a.length;
+    var left = al === 'c' ? Math.floor(pad / 2) : 0;
+    var out = [];
+    for (var i = 0; i < left; i++) out.push(' ');
+    out = out.concat(a);
+    while (out.length < len) out.push(' ');
+    return out;
+  }
+
+  function show(c) { c.c.textContent = c.cur; }
+
+  function build(el) {
+    var id = el.getAttribute('data-flaps');
+    var len = +el.getAttribute('data-len');
+    var al = el.getAttribute('data-align');
+    var spinnable = el.hasAttribute('data-spin');
+    var s = fit(el.getAttribute('data-text'), len, al);
+    var cells = s.map(function (ch, i) {
+      var fl = document.createElement('span'); fl.className = 'fl';
+      var c = document.createElement('span'); c.className = 'fl-c';
+      var f = document.createElement('span'); f.className = 'fl-f';
+      fl.appendChild(c); fl.appendChild(f);
+      var root = fl;
+      if (spinnable) {
+        root = document.createElement('button');
+        root.type = 'button';
+        root.className = 'flb';
+        root.setAttribute('aria-label', 'Girar la letra ' + (ch === ' ' ? 'en blanco' : ch));
+        root.appendChild(fl);
+        root.addEventListener('click', function () { spin(id, i); });
+      }
+      el.appendChild(root);
+      var cell = { cur: ch, tgt: ch, d: 0, c: c, f: f };
+      show(cell);
+      return cell;
+    });
+    B[id] = { len: len, al: al, cells: cells };
+  }
+
+  function run() { if (!rm && !timer) timer = setInterval(step, TICK_MS); }
+
+  function step() {
+    var act = 0;
+    Object.keys(B).forEach(function (id) {
+      B[id].cells.forEach(function (c) {
+        if (c.cur === c.tgt) return;
+        act++;
+        if (c.d > 0) { c.d--; return; }
+        var i = F.indexOf(c.cur);
+        c.cur = i < 0 ? c.tgt : F[(i + 1) % L];
+        show(c);
+        if (c.f.animate) c.f.animate(KF, { duration: 70, easing: 'ease-in' });
+      });
+    });
+    if (!act) { clearInterval(timer); timer = null; }
+  }
+
+  function set(id, text, stagger) {
+    var b = B[id];
+    if (!b) return;
+    var s = fit(text, b.len, b.al);
+    b.cells.forEach(function (c, i) {
+      c.tgt = s[i];
+      if (c.cur === c.tgt) return;
+      if (rm) { c.cur = c.tgt; show(c); return; }
+      var ti = F.indexOf(c.tgt), ci = F.indexOf(c.cur);
+      if (ci < 0 || (ti - ci + L) % L > 14) { c.cur = F[(ti - 4 - rand(9) + L) % L]; show(c); }
+      c.d = stagger ? i * stagger : 0;
+    });
+    run();
+  }
+
+  function reflip(id, stagger, base) {
+    var b = B[id];
+    if (rm || !b) return;
+    b.cells.forEach(function (c, i) {
+      c.cur = F[(F.indexOf(c.tgt) - 5 - rand(12) + L) % L];
+      c.d = (base || 0) + i * (stagger || 0) + rand(3);
+      show(c);
+    });
+    run();
+  }
+
+  function spin(id, i) {
+    if (rm) return;
+    var c = B[id].cells[i];
+    c.cur = F[(F.indexOf(c.tgt) + 1) % L];
+    c.d = 0;
+    show(c);
+    run();
+  }
+
+  function now() {
+    var d = new Date();
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    return p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  }
+
+  // ---- Filas de proyectos ----
+  var COLS = [['year', 5, 'var(--mid)'], ['code', 5, 'var(--ac)'], ['dest', 16, 'var(--ink)'], ['tech', 14, 'var(--mid)'], ['st', 9, 'var(--ac)']];
+  var list = document.getElementById('proj-list');
+  PROJECTS.forEach(function (p, i) {
+    var row = document.createElement('div');
+    row.style.borderTop = '1px solid #24252A';
+    var cols = COLS.map(function (col) {
+      return '<span class="row pcol" aria-hidden="true" data-flaps="p' + i + col[0] + '" data-len="' + col[1] + '" data-text="' + esc(p[col[0]]) + '" style="color:' + col[2] + '"></span>';
+    }).join('');
+    row.innerHTML =
+      '<button type="button" class="prow" aria-expanded="false" aria-controls="pd' + i + '" aria-label="' + esc('Vuelo ' + p.code + ': ' + p.dest + ', ' + p.year + ', ' + p.tech + ', ' + p.st) + '">' + cols +
+      '<svg class="chev" aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#A6A299" stroke-width="1.8" stroke-linecap="square"><path d="M4 6l4 4 4-4"/></svg></button>' +
+      '<div id="pd' + i + '" hidden style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 32px;padding:6px 12px 22px;font-size:17px">' +
+      '<p style="max-width:680px;color:var(--mid)">' + esc(p.desc) + '</p>' +
+      '<a href="' + esc(p.url) + '" class="mono" style="display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ac)">Ver proyecto ↗</a></div>';
+    list.appendChild(row);
+    var btn = row.querySelector('.prow');
+    var det = row.querySelector('#pd' + i);
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      list.querySelectorAll('.prow').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+      list.querySelectorAll('[id^="pd"]').forEach(function (d) { d.hidden = true; });
+      if (!open) { btn.setAttribute('aria-expanded', 'true'); det.hidden = false; }
+      COLS.forEach(function (col, j) { reflip('p' + i + col[0], 1, j * 2); });
+    });
+  });
+  function flipProjects() {
+    PROJECTS.forEach(function (p, i) { COLS.forEach(function (col, j) { reflip('p' + i + col[0], 1, i * 6 + j * 3); }); });
+  }
+
+  // ---- Construir todos los tableros ----
+  document.querySelector('[data-flaps="clk"]').setAttribute('data-text', now());
+  document.querySelectorAll('[data-flaps]').forEach(build);
+
+  // Portada: entrada, reloj y mensajes
+  reflip('n1', 3, 2);
+  reflip('n2', 3, 10);
+  reflip('tk', 1, 16);
+  setInterval(function () { set('clk', now()); }, 1000);
+
+  var ph = 0;
+  var phSr = document.getElementById('phrase-sr');
+  function nextPhrase() {
+    ph = (ph + 1) % PHRASES.length;
+    set('tk', PHRASES[ph], 1);
+    phSr.textContent = PHRASES[ph];
+  }
+  var auto = setInterval(nextPhrase, 5600);
+  document.getElementById('next').addEventListener('click', function () {
+    clearInterval(auto);
+    nextPhrase();
+    auto = setInterval(nextPhrase, 5600);
+  });
+
+  // Servicios
+  var svcBtns = document.querySelectorAll('.svb');
+  svcBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var i = +btn.getAttribute('data-svc');
+      var s = SERVICES[i];
+      svcBtns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      document.querySelectorAll('[data-icon]').forEach(function (ic) { ic.hidden = +ic.getAttribute('data-icon') !== i; });
+      document.getElementById('svc-num').textContent = '0' + (i + 1);
+      document.getElementById('svc-desc').textContent = s.desc;
+      document.getElementById('svc-sr').textContent = s.name;
+      set('sv1', s.flap, 1);
+      set('sv2', s.tag, 1);
+    });
+  });
+
+  // Proyectos
+  document.getElementById('reflip').addEventListener('click', flipProjects);
+
+  // Contacto
+  var ta = document.getElementById('gp-msg');
+  var count = document.getElementById('msg-count');
+  var send = document.getElementById('send');
+  function wrapText(t, n, max) {
+    var out = [], cur = '';
+    t.trim().split(/\s+/).forEach(function (w) {
+      while (w.length > n) {
+        if (cur) { out.push(cur); cur = ''; }
+        out.push(w.slice(0, n));
+        w = w.slice(n);
+      }
+      if (!w) return;
+      var nx = cur ? cur + ' ' + w : w;
+      if (nx.length <= n) cur = nx; else { out.push(cur); cur = w; }
+    });
+    if (cur) out.push(cur);
+    while (out.length < max) out.push('');
+    return out.slice(0, max);
+  }
+  function onMsg() {
+    var v = ta.value.slice(0, 66);
+    count.textContent = v.length;
+    var lines = v.trim() ? wrapText(v, 22, 3) : DEF_MSG;
+    lines.forEach(function (l, i) { set('m' + i, l, 0); });
+    send.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Proyecto desde genaropadron.com') + (v.trim() ? '&body=' + encodeURIComponent(v) : '');
+  }
+  ta.addEventListener('input', onMsg);
+  document.getElementById('clear').addEventListener('click', function () { ta.value = ''; onMsg(); ta.focus(); });
+  onMsg();
+
+  // Animar cada tablero la primera vez que entra en pantalla
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var k = en.target.getAttribute('data-board');
+        if (k === 'about') ['s1', 's2', 's3'].forEach(function (id, j) { reflip(id, 2, j * 6); });
+        if (k === 'svc') { reflip('sv1', 2); reflip('sv2', 1, 10); }
+        if (k === 'proj') flipProjects();
+        if (k === 'contact') [0, 1, 2].forEach(function (r) { reflip('m' + r, 1, r * 8); });
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('[data-board]').forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
 </body>
 </html>
