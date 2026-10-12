@@ -496,7 +496,7 @@
       process_3: { en: "Detailed proposal", es: "Propuesta detallada", pt: "Proposta detalhada" },
       process_4: { en: "Iterative development", es: "Desarrollo iterativo", pt: "Desenvolvimento iterativo" },
       process_5: { en: "Delivery and support", es: "Entrega y soporte", pt: "Entrega e suporte" },
-      about_title: { en: "About ProtonLab", es: "Acerca de ProtonLab", pt: "Sobre a ProtonLab" },
+      about_title: { en: "About GenaroPadron", es: "Acerca de GenaroPadron", pt: "Sobre GenaroPadron" },
       about_lead: { en: "More than a development company, we are an innovation laboratory where ideas take shape.", es: "Más que una empresa de desarrollo, somos un laboratorio de innovación donde las ideas toman forma.", pt: "Mais do que uma empresa de desenvolvimento, somos um laboratório de inovação onde as ideias ganham forma." },
       about_phil_title: { en: "Our Philosophy", es: "Nuestra Filosofía", pt: "Nossa Filosofia" },
       about_phil_desc: { en: "We believe in the intersection of software and hardware as the future of technology. Every project is an opportunity to create something unique and meaningful that solves real problems and improves the user experience.", es: "Creemos en la intersección entre software y hardware como el futuro de la tecnología. Cada proyecto es una oportunidad para crear algo único y significativo que resuelva problemas reales y mejore la experiencia del usuario.", pt: "Acreditamos na interseção de software e hardware como o futuro da tecnologia. Cada projeto é uma oportunidade de criar algo único e significativo que resolva problemas reais e melhore a experiência do usuário." },
@@ -505,7 +505,7 @@
       about_tech_title: { en: "Technologies", es: "Tecnologías", pt: "Tecnologias" },
       about_tech_desc: { en: "We work with a modern and versatile technology stack, always selecting the right tool for each specific challenge. We stay updated with the latest trends and best practices in the industry.", es: "Trabajamos con un stack tecnológico moderno y versátil, seleccionando siempre la herramienta adecuada para cada desafío específico. Mantenemos actualizados con las últimas tendencias y mejores prácticas de la industria.", pt: "Trabalhamos com uma stack tecnológica moderna e versátil, selecionando sempre a ferramenta certa para cada desafio específico. Mantemo-nos atualizados com as últimas tendências e melhores práticas do setor." },
       about_quality_title: { en: "Commitment to Quality", es: "Compromiso con la Calidad", pt: "Compromisso com a Qualidade" },
-      about_quality_desc: { en: "At ProtonLab, we don't just deliver code; we deliver solutions that work, scale, and endure. Our commitment is to technical excellence and customer satisfaction in every project we undertake, ensuring that every line of code and every physical component meets the highest quality standards.", es: "En ProtonLab, no entregamos solo código; entregamos soluciones que funcionan, escalan y perduran. Nuestro compromiso es con la excelencia técnica y la satisfacción del cliente en cada proyecto que emprendemos, asegurando que cada línea de código y cada componente físico cumplan con los más altos estándares de calidad.", pt: "Na ProtonLab, não entregamos apenas código; entregamos soluções que funcionam, escalam e duram. Nosso compromisso é com a excelência técnica e a satisfação do cliente em cada projeto que realizamos, garantindo que cada linha de código e componente físico atenda aos mais altos padrões de qualidade." },
+      about_quality_desc: { en: "At GenaroPadron, we don't just deliver code; we deliver solutions that work, scale, and endure. Our commitment is to technical excellence and customer satisfaction in every project we undertake, ensuring that every line of code and every physical component meets the highest quality standards.", es: "En GenaroPadron, no entregamos solo código; entregamos soluciones que funcionan, escalan y perduran. Nuestro compromiso es con la excelencia técnica y la satisfacción del cliente en cada proyecto que emprendemos, asegurando que cada línea de código y cada componente físico cumplan con los más altos estándares de calidad.", pt: "Em GenaroPadron, não entregamos apenas código; entregamos soluções que funcionam, escalam e duram. Nosso compromisso é com a excelência técnica e a satisfação do cliente em cada projeto que realizamos, garantindo que cada linha de código e componente físico atenda aos mais altos padrões de qualidade." },
       footer_text: { en: "Innovation in every line of code, precision in every physical component.", es: "Innovación en cada línea de código, precisión en cada componente físico.", pt: "Inovação em cada linha de código, precisão em cada componente físico." },
       pay_modal_title: { en: "Payment Access", es: "Acceso a Pagos", pt: "Acesso a Pagamentos" },
       pay_modal_label: { en: "Password", es: "Contraseña", pt: "Senha" },
@@ -1715,7 +1715,7 @@
       matrixCanvas.width = window.innerWidth;
       matrixCanvas.height = window.innerHeight;
       
-      console.log("✅ ProtonLab cargado correctamente");
+      console.log("✅ GenaroPadron cargado correctamente");
       console.log("🌐 URL del backend configurada:", CONFIG.API_SERVER_URL);
 
       const floatBtns = document.querySelectorAll('.float-btn');
