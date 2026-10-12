@@ -691,12 +691,13 @@
     // === ANIMACIÓN TÍTULO ===
     const typed = document.getElementById('typed');
     const brandMini = document.getElementById('brandMini');
-    const finalText = 'ProtonLab';
+    const finalText = 'GenaroPadron';
     const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
     
-    const revealOrder = [0, 6, 3, 7, 2, 5, 8, 1, 4];
+    const revealOrder = [0, 7, 3, 10, 5, 1, 9, 6, 11, 2, 8, 4];
+    const titleLength = finalText.length;
     
-    let currentText = Array(9).fill('');
+    let currentText = Array(titleLength).fill('');
     let currentStep = 0;
     let animationPhase = 1;
     let animationInterval;
@@ -704,7 +705,7 @@
     const animationSpeed = 100;
     
     function startTitleAnimation() {
-      currentText = Array(9).fill('');
+      currentText = Array(titleLength).fill('');
       currentStep = 0;
       animationPhase = 1;
       animationStartTime = Date.now();
@@ -713,12 +714,12 @@
       
       animationInterval = setInterval(updateAnimation, animationSpeed);
       
-      const phase1Steps = 9;
+      const phase1Steps = titleLength;
       const phase1TimePerStep = 3000 / phase1Steps;
       
       for (let i = 0; i < phase1Steps; i++) {
         setTimeout(() => {
-          if (currentStep < 9) currentStep++;
+          if (currentStep < titleLength) currentStep++;
         }, i * phase1TimePerStep);
       }
       
@@ -731,7 +732,7 @@
     
     function updateAnimation() {
       if (animationPhase === 1) {
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < titleLength; i++) {
           if (i < currentStep) {
             const pos = revealOrder[i];
             currentText[pos] = randomChars[Math.floor(Math.random() * randomChars.length)];
@@ -742,9 +743,9 @@
         }
       } else if (animationPhase === 2) {
         const progress = (Date.now() - animationStartTime - 3000) / 2000;
-        const charsToReveal = Math.min(9, Math.floor(progress * 9));
+        const charsToReveal = Math.min(titleLength, Math.floor(progress * titleLength));
         
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < titleLength; i++) {
           if (i < charsToReveal) {
             const pos = revealOrder[i];
             currentText[pos] = finalText[pos];
