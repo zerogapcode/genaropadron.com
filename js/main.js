@@ -1,7 +1,6 @@
 // ========================================
     // [NUEVO] CONTADOR DE VISITAS GLOBAL (propio backend)
     // ========================================
-    const COUNT_API_KEY = 'protonlab-site-visits'; // namespace único (ya no se usa, pero lo dejamos por si acaso)
     let globalVisitCount = 0;
 
     async function updateGlobalVisitCounter() {
@@ -30,6 +29,9 @@
       THEME: 'protonlab_theme',
       LANG: 'protonlab_lang'
     };
+
+    // El historial de RickGPT ya vive en memoria; se borra el que guardaba el antiguo interceptor de config.js
+    try { localStorage.removeItem('protonlab_chats'); } catch (e) {}
 
     function setPreference(key, value) {
       try {
@@ -75,6 +77,8 @@
     let isDebugging = false;
     let isServerAvailable = false;
     let currentSessionId = null;
+    let aiHistory = []; // historial de la sesión de RickGPT que se envía al backend
+    const AI_HISTORY_MAX = 14;
     let debugEditor = null;
     let editorInitialized = false;
 
@@ -406,16 +410,20 @@
 
     // Cargar tema guardado al inicio
     const savedTheme = getPreference(STORAGE_KEYS.THEME, 'auto');
-    modeButtons.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.mode === savedTheme);
-    });
+    function markActiveMode(mode) {
+      modeButtons.forEach(btn => {
+        const isActive = btn.dataset.mode === mode;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+    markActiveMode(savedTheme);
     applyTheme(savedTheme);
 
     modeButtons.forEach(btn => {
       btn.addEventListener('click', function() {
-        modeButtons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
         const selectedMode = this.dataset.mode;
+        markActiveMode(selectedMode);
         setPreference(STORAGE_KEYS.THEME, selectedMode);
         applyTheme(selectedMode);
       });
@@ -435,7 +443,7 @@
     const translations = {
       nav_home: { en: "Home", es: "Inicio", pt: "Início" },
       nav_services: { en: "Services", es: "Servicios", pt: "Serviços" },
-      nav_departments: { en: "Departments", es: "Departamentos", pt: "Departamentos" },
+      nav_projects: { en: "Projects", es: "Proyectos", pt: "Projetos" },
       nav_contact: { en: "Contact", es: "Contacto", pt: "Contato" },
       nav_about: { en: "About", es: "Acerca", pt: "Sobre" },
       mode_auto: { en: "Auto", es: "Auto", pt: "Auto" },
@@ -452,6 +460,18 @@
         es: "Diseñamos, desarrollamos y construimos. Nuestro enfoque end-to-end garantiza que cada línea de código y cada componente físico trabajen en perfecta sincronía para impulsar tu visión.",
         pt: "Projetamos, desenvolvemos e construímos. Nossa abordagem end-to-end garante que cada linha de código e componente físico trabalhe em perfeita sincronia para impulsionar a sua visão."
       },
+      hero_cta_talk: { en: "Let's talk", es: "Hablemos", pt: "Vamos conversar" },
+      hero_cta_projects: { en: "See projects", es: "Ver proyectos", pt: "Ver projetos" },
+      projects_title: { en: "Projects", es: "Proyectos", pt: "Projetos" },
+      projects_lead: { en: "Products we designed and built end to end.", es: "Productos que diseñamos y construimos de principio a fin.", pt: "Produtos que projetamos e construímos de ponta a ponta." },
+      proj_medicloud: { en: "Your medical practice in the cloud.", es: "Tu consultorio médico en la nube.", pt: "Seu consultório médico na nuvem." },
+      proj_axiom: { en: "Fluid intelligence for your Mac.", es: "Inteligencia fluida para tu Mac.", pt: "Inteligência fluida para o seu Mac." },
+      proj_draiven: { en: "Motorcycle taxi rides: fast, safe and fairly priced.", es: "Viajes en mototaxi rápidos, seguros y a precio justo.", pt: "Corridas de mototáxi rápidas, seguras e com preço justo." },
+      proj_estoquia: { en: "Point of sale and inventory for your store.", es: "Punto de venta e inventario para tu tienda.", pt: "Ponto de venda e estoque para a sua loja." },
+      proj_wea: { en: "All your loyalty programs in one app.", es: "Todos tus programas de fidelidad en una sola app.", pt: "Todos os seus programas de fidelidade em um só app." },
+      proj_postventa: { en: "Your dealership's after-sales service, in one app.", es: "La postventa de tu concesionario, en una app.", pt: "O pós-venda da sua concessionária, em um app." },
+      proj_condo: { en: "Condominium management for residents, gatehouse and administration.", es: "Administración de condominios para residentes, garita y administración.", pt: "Gestão de condomínios para moradores, portaria e administração." },
+      proj_hyperjump: { en: "Endless vertical jumper across four dimensions.", es: "Juego de saltos infinito a través de cuatro dimensiones.", pt: "Jogo de saltos infinito através de quatro dimensões." },
       services_title: { en: "Services", es: "Servicios", pt: "Serviços" },
       services_lead: { en: "Custom development, technical consulting, and rapid prototyping. We transform ideas into functional products.", es: "Desarrollo a medida, consultoría técnica y prototipado rápido. Transformamos ideas en productos funcionales.", pt: "Desenvolvimento sob medida, consultoria técnica e prototipagem rápida. Transformamos ideias em produtos funcionais." },
       service_ios_title: { en: "Multiplatform Development", es: "Desarrollo Multiplataforma", pt: "Desenvolvimento Multiplataforma" },
@@ -460,26 +480,12 @@
       service_web_desc: { en: "Development of modern web applications, RESTful APIs, and scalable backend systems with the latest technologies. Robust and maintainable architectures.", es: "Desarrollo de aplicaciones web modernas, APIs RESTful y sistemas backend escalables con las últimas tecnologías. Arquitecturas robustas y mantenibles.", pt: "Desenvolvimento de aplicações web modernas, APIs RESTful e sistemas backend escaláveis com as tecnologias mais recentes. Arquiteturas robustas e de fácil manutenção." },
       service_hw_title: { en: "Hardware/Software Integration", es: "Integración Hardware/Software", pt: "Integração Hardware/Software" },
       service_hw_desc: { en: "Embedded systems, IoT, automation, and physical device control via custom software. Seamless connection between the digital and physical worlds.", es: "Sistemas embebidos, IoT, automatización y control de dispositivos físicos mediante software personalizado. Conexión perfecta entre mundo digital y físico.", pt: "Sistemas embarcados, IoT, automação e controle de dispositivos físicos por meio de software personalizado. Conexão perfeita entre o mundo digital e o físico." },
-      service_3d_title: { en: "Additive Manufacturing", es: "Fabricación Aditiva", pt: "Manufatura Aditiva" },
-      service_3d_desc: { en: "Rapid prototyping, custom parts, and 3D printing solutions for hardware projects and physical products. From concept to final product.", es: "Prototipado rápido, piezas personalizadas y soluciones de impresión 3D para proyectos de hardware y productos físicos. Desde concepto hasta producto final.", pt: "Prototipagem rápida, peças personalizadas e soluções de impressão 3D para projetos de hardware e produtos físicos. Do conceito ao produto final." },
       service_consulting_title: { en: "Technical Consulting", es: "Consultoría Técnica", pt: "Consultoria Técnica" },
       service_consulting_desc: { en: "Specialized advice on software architecture, process optimization, and technology strategies. We maximize the value of your technological investment.", es: "Asesoramiento especializado en arquitectura de software, optimización de procesos y estrategias tecnológicas. Maximizamos el valor de tu inversión tecnológica.", pt: "Aconselhamento especializado em arquitetura de software, otimização de processos e estratégias de tecnologia. Maximizamos o valor do seu investimento tecnológico." },
       service_maintenance_title: { en: "Maintenance & Support", es: "Mantenimiento & Soporte", pt: "Manutenção & Suporte" },
       service_maintenance_desc: { en: "Continuous maintenance services, updates, and technical support to ensure optimal operation of your systems in the long term.", es: "Servicios continuos de mantenimiento, actualizaciones y soporte técnico para garantizar el funcionamiento óptimo de tus sistemas a largo plazo.", pt: "Serviços de manutenção contínua, atualizações e suporte técnico para garantir o funcionamento ideal de seus sistemas a longo prazo." },
-      dept_title: { en: "Departments", es: "Departamentos", pt: "Departamentos" },
-      dept_lead: { en: "Specialized teams working in synergy to offer complete and innovative solutions.", es: "Equipos especializados trabajando en sinergia para ofrecer soluciones completas e innovadoras.", pt: "Equipes especializadas trabalhando em sinergia para oferecer soluções completas e inovadoras." },
-      dept_ios_title: { en: "Mobile & Desktop Apps", es: "Apps Móviles y de Escritorio", pt: "Apps Mobile e Desktop" },
-      dept_ios_desc: { en: "Specialists in creating high-performance applications for any operating system (Mobile & Desktop) with fluid interfaces and exceptional user experiences.", es: "Especialistas en la creación de aplicaciones de alto rendimiento para cualquier sistema operativo (Móvil y Escritorio) con interfaces fluidas y experiencias de usuario excepcionales.", pt: "Especialistas na criação de aplicativos de alto desempenho para qualquer sistema operacional (Mobile & Desktop) com interfaces fluidas e experiências de usuário excepcionais." },
-      dept_eng_title: { en: "Software Engineering", es: "Ingeniería de Software", pt: "Engenharia de Software" },
-      dept_eng_desc: { en: "Systems architecture, backend development, databases, and APIs. Modern and scalable technologies to build robust and maintainable solutions.", es: "Arquitectura de sistemas, desarrollo backend, bases de datos y APIs. Tecnologías modernas y escalables para construir soluciones robustas y mantenibles.", pt: "Arquitetura de sistemas, desenvolvimento backend, bancos de dados e APIs. Tecnologias modernas e escaláveis para construir soluções robustas e fáceis de manter." },
-      dept_elec_title: { en: "Electronics & IoT", es: "Electrónica & IoT", pt: "Eletrônica & IoT" },
-      dept_elec_desc: { en: "Circuit design, embedded systems, sensors, and connectivity. Bridge between the digital and physical worlds, creating tangible and innovative solutions.", es: "Diseño de circuitos, sistemas embebidos, sensores y conectividad. Puente entre el mundo digital y físico, creando soluciones tangibles e innovadoras.", pt: "Design de circuitos, sistemas embarcados, sensores e conectividade. Ponte entre o mundo digital e o físico, criando soluções tangíveis e inovadoras." },
-      dept_design_title: { en: "Design & UX/UI", es: "Diseño & UX/UI", pt: "Design & UX/UI" },
-      dept_design_desc: { en: "Intuitive interfaces, optimized user experience, and attractive visual design for all our products. Focused on usability and aesthetics.", es: "Interfaces intuitivas, experiencia de usuario optimizada y diseño visual atractivo para todos nuestros productos. Centrados en la usabilidad y estética.", pt: "Interfaces intuitivas, experiência de usuário otimizada e design visual atraente para todos os nossos produtos. Foco em usabilidade e estética." },
-      dept_fab_title: { en: "Manufacturing & Prototyping", es: "Fabricación & Prototipado", pt: "Manufatura & Prototipagem" },
-      dept_fab_desc: { en: "3D printing, CNC machining, and fabrication of functional prototypes for concept validation. Materialization of ideas into physical products.", es: "Impresión 3D, mecanizado CNC y fabricación de prototipos funcionales para validación de conceptos. Materialización de ideas en productos físicos.", pt: "Impressão 3D, usinagem CNC e fabricação de protótipos funcionais para validação de conceitos. Materialização de ideias em produtos físicos." },
-      dept_qa_title: { en: "Quality Control", es: "Control de Calidad", pt: "Controle de Qualidade" },
-      dept_qa_desc: { en: "Exhaustive testing, test automation, and quality assurance at every stage of development. Committed to excellence and reliability.", es: "Testing exhaustivo, automatización de pruebas y garantía de calidad en cada etapa del desarrollo. Comprometidos con la excelencia y fiabilidad.", pt: "Testes exaustivos, automação de testes e garantia de qualidade em cada etapa do desenvolvimento. Comprometidos com a excelência e confiabilidade." },
+      service_design_title: { en: "Design & UX/UI", es: "Diseño & UX/UI", pt: "Design & UX/UI" },
+      service_design_desc: { en: "Intuitive interfaces, optimized user experience, and attractive visual design for all our products. Focused on usability and aesthetics.", es: "Interfaces intuitivas, experiencia de usuario optimizada y diseño visual atractivo para todos nuestros productos. Centrados en la usabilidad y estética.", pt: "Interfaces intuitivas, experiência de usuário otimizada e design visual atraente para todos os nossos produtos. Foco em usabilidade e estética." },
       contact_title: { en: "Contact", es: "Contacto", pt: "Contato" },
       contact_lead: { en: "Do you have a project in mind? Let's talk about how we can make it happen.", es: "¿Tienes un proyecto en mente? Hablemos sobre cómo podemos hacerlo realidad.", pt: "Tem um projeto em mente? Vamos conversar sobre como podemos torná-lo realidade." },
       contact_info_title: { en: "Contact Information", es: "Información de Contacto", pt: "Informações de Contato" },
@@ -514,6 +520,11 @@
       pay_modal_placeholder: { en: "Enter password", es: "Ingrese la contraseña", pt: "Digite a senha" },
       aria_brand: { en: "Replay title animation", es: "Repetir animación del título", pt: "Repetir animação do título" },
       aria_menu: { en: "Main menu", es: "Menú principal", pt: "Menu principal" },
+      aria_nav: { en: "Main navigation", es: "Navegación principal", pt: "Navegação principal" },
+      aria_theme: { en: "Theme", es: "Tema", pt: "Tema" },
+      aria_lang: { en: "Language", es: "Idioma", pt: "Idioma" },
+      aria_labs: { en: "Open Labs", es: "Abrir Labs", pt: "Abrir Labs" },
+      aria_labs_close: { en: "Close Labs", es: "Cerrar Labs", pt: "Fechar Labs" },
       aria_close: { en: "Close", es: "Cerrar", pt: "Fechar" },
       aria_sim: { en: "Open Simulation", es: "Abrir Simulación", pt: "Abrir Simulação" },
       aria_pitfall: { en: "Open Pitfall", es: "Abrir Pitfall", pt: "Abrir Pitfall" },
@@ -579,7 +590,9 @@
       currentLang = lang;
       
       langButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
       });
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1080,6 +1093,39 @@
     });
 
     // ========================================
+    // LANZADOR LABS (agrupa los botones flotantes)
+    // ========================================
+    const labsToggle = document.getElementById('labs-toggle');
+    const labsMenu = document.getElementById('labs-menu');
+
+    function setLabsMenu(open) {
+      floatButtonsContainer.classList.toggle('open', open);
+      labsToggle.setAttribute('aria-expanded', String(open));
+      const ariaKey = open ? 'aria_labs_close' : 'aria_labs';
+      labsToggle.setAttribute('data-i18n-aria', ariaKey);
+      labsToggle.setAttribute('aria-label', translations[ariaKey][currentLang]);
+    }
+
+    function closeLabsMenu() { setLabsMenu(false); }
+
+    labsToggle.addEventListener('click', () => {
+      setLabsMenu(!floatButtonsContainer.classList.contains('open'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (floatButtonsContainer.classList.contains('open') && !floatButtonsContainer.contains(e.target)) {
+        closeLabsMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && floatButtonsContainer.classList.contains('open') && !passwordModal.classList.contains('active')) {
+        closeLabsMenu();
+        labsToggle.focus();
+      }
+    });
+
+    // ========================================
     // FUNCIONALIDAD PAGOS CON CONTRASEÑA
     // ========================================
 
@@ -1104,7 +1150,12 @@
 
     function validatePassword() {
       const password = passwordInputField.value.trim();
-      
+
+      // 🗝️ Sí, la contraseña está aquí a la vista. Es a propósito.
+      // "swordfish" es la contraseña más famosa del cine: de los hermanos Marx (Horse Feathers, 1932)
+      // a la peli de hackers de 2001. Si llegaste hasta aquí leyendo el código fuente, felicidades:
+      // ya eres oficialmente un hacker de Hollywood. Ponte las gafas de sol y teclea muy rápido.
+      // Detrás de esta puerta no hay ninguna bóveda, solo un enlace. Saluda al salir. 👋
       if (password === 'swordfish') {
         closePasswordModal();
         window.location.href = 'intercom.html';
@@ -1192,6 +1243,7 @@
 
     function openDebugChat() {
       isDebugChatOpen = true;
+      closeLabsMenu();
       floatButtonsContainer.style.display = 'none';
       debugChatWindow.style.display = 'flex';
       
@@ -1493,6 +1545,7 @@
 
     function openAIChat() {
       isAIChatOpen = true;
+      closeLabsMenu();
       floatButtonsContainer.style.display = 'none';
       aiChatWindow.style.display = 'flex';
       
@@ -1541,7 +1594,8 @@
         addAIMessage(currentLang === 'en' ? 'Connecting to RickGPT...' : 'Conectando con RickGPT...', false);
         
         currentSessionId = "ai-session-" + Date.now();
-        
+        aiHistory = [];
+
         const testResponse = await fetch(CONFIG.API_SERVER_URL, {
           method: 'POST',
           headers: getNgrokHeaders(),
@@ -1666,25 +1720,31 @@
         const response = await fetch(CONFIG.API_SERVER_URL, {
           method: 'POST',
           headers: getNgrokHeaders(),
-          body: JSON.stringify({ 
+          body: JSON.stringify({
             message: text,
             session_id: currentSessionId,
             assistant: "rickgpt",
-            lang: currentLang
+            lang: currentLang,
+            history: aiHistory
           })
         });
-        
+
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
+
         typingIndicator.remove();
-        
+
         if (data.status === 'success' && data.response) {
           addAIMessage(data.response);
           isServerAvailable = true;
+          aiHistory.push(
+            { role: "user", parts: [{ text }] },
+            { role: "model", parts: [{ text: data.response }] }
+          );
+          aiHistory = aiHistory.slice(-AI_HISTORY_MAX);
         } else {
           throw new Error('Respuesta inválida del servidor');
         }
@@ -1718,7 +1778,8 @@
       console.log("✅ GenaroPadron cargado correctamente");
       console.log("🌐 URL del backend configurada:", CONFIG.API_SERVER_URL);
 
-      const floatBtns = document.querySelectorAll('.float-btn');
+      // La animación de entrada solo la hace el botón Labs; el resto aparece al abrir el menú
+      const floatBtns = document.querySelectorAll('.float-buttons-container > .float-btn');
       floatBtns.forEach(btn => btn.classList.add('init-hidden'));
 
       setTimeout(() => {

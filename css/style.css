@@ -60,403 +60,6 @@
       transform: scale(0.95);
     }
 
-    /* ===== BOTÓN MEDICLOUD (original) ===== */
-    .medicloud-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: inherit; /* hereda el color del texto según el tema */
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .medicloud-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .medicloud-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .medicloud-link:hover svg {
-      transform: scale(1.1);
-    }
-    body[data-theme='dark'] .medicloud-link {
-      color: #f0f0f0;
-    }
-
-    /* ===== NUEVO BOTÓN AXIOM (morado) ===== */
-    .axiom-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(180, 120, 255, 0.1);
-      border: 1px solid rgba(180, 120, 255, 0.2);
-      color: inherit;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .axiom-link:hover {
-      transform: translateY(-2px);
-      background: rgba(180, 120, 255, 0.2);
-      border-color: rgba(180, 120, 255, 0.4);
-      box-shadow: 0 8px 20px rgba(180, 120, 255, 0.2);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .axiom-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .axiom-link:hover svg {
-      transform: scale(1.1) rotate(5deg);
-    }
-    body[data-theme='dark'] .axiom-link {
-      background: rgba(180, 120, 255, 0.15);
-      border-color: rgba(180, 120, 255, 0.3);
-    }
-    body[data-theme='dark'] .axiom-link:hover {
-      background: rgba(180, 120, 255, 0.25);
-      border-color: rgba(180, 120, 255, 0.5);
-    }
-
-    /* ===== NUEVO BOTÓN DRAIVEN (amarillo) ===== */
-    .draiven-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 193, 7, 0.1);
-      border: 1px solid rgba(255, 193, 7, 0.2);
-      color: #b38600;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .draiven-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 193, 7, 0.2);
-      border-color: rgba(255, 193, 7, 0.4);
-      box-shadow: 0 8px 20px rgba(255, 193, 7, 0.2);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .draiven-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .draiven-link:hover svg {
-      transform: scale(1.1) rotate(5deg);
-    }
-    body[data-theme='dark'] .draiven-link {
-      background: rgba(255, 193, 7, 0.15);
-      border-color: rgba(255, 193, 7, 0.3);
-      color: #ffc107;
-    }
-    body[data-theme='dark'] .draiven-link:hover {
-      background: rgba(255, 193, 7, 0.25);
-      border-color: rgba(255, 193, 7, 0.5);
-    }
-
-    .estoquia-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #333333;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .estoquia-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .estoquia-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .estoquia-link:hover svg {
-      transform: scale(1.1) rotate(5deg);
-    }
-    body[data-theme='dark'] .estoquia-link {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-      color: #ffffff;
-    }
-    body[data-theme='dark'] .estoquia-link:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-
-    
-    /* ===== NUEVO BOTÓN WEA (magenta) ===== */
-    .wea-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 42, 95, 0.1);
-      border: 1px solid rgba(255, 42, 95, 0.2);
-      color: #ff2a5f;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .wea-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 42, 95, 0.2);
-      border-color: rgba(255, 42, 95, 0.4);
-      box-shadow: 0 8px 20px rgba(255, 42, 95, 0.15);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .wea-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .wea-link:hover svg {
-      transform: scale(1.1);
-    }
-    body[data-theme='dark'] .wea-link {
-      background: rgba(255, 42, 95, 0.15);
-      border-color: rgba(255, 42, 95, 0.3);
-      color: #ff4d79;
-    }
-    body[data-theme='dark'] .wea-link:hover {
-      background: rgba(255, 42, 95, 0.25);
-      border-color: rgba(255, 42, 95, 0.5);
-    }
-
-    /* ===== NUEVO BOTÓN POSTVENTA (naranja) ===== */
-    .postventa-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 90, 0, 0.1);
-      border: 1px solid rgba(255, 90, 0, 0.2);
-      color: #ff5a00;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .postventa-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 90, 0, 0.2);
-      border-color: rgba(255, 90, 0, 0.4);
-      box-shadow: 0 8px 20px rgba(255, 90, 0, 0.15);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .postventa-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .postventa-link:hover svg {
-      transform: scale(1.1);
-    }
-    body[data-theme='dark'] .postventa-link {
-      background: rgba(255, 90, 0, 0.15);
-      border-color: rgba(255, 90, 0, 0.3);
-      color: #ff7626;
-    }
-    body[data-theme='dark'] .postventa-link:hover {
-      background: rgba(255, 90, 0, 0.25);
-      border-color: rgba(255, 90, 0, 0.5);
-    }
-
-    /* ===== NUEVO BOTÓN CONDO (teal) ===== */
-    .condo-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(15, 118, 110, 0.1);
-      border: 1px solid rgba(15, 118, 110, 0.2);
-      color: #0f766e;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .condo-link:hover {
-      transform: translateY(-2px);
-      background: rgba(15, 118, 110, 0.2);
-      border-color: rgba(15, 118, 110, 0.4);
-      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.15);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .condo-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .condo-link:hover svg {
-      transform: scale(1.1);
-    }
-    body[data-theme='dark'] .condo-link {
-      background: rgba(15, 118, 110, 0.15);
-      border-color: rgba(15, 118, 110, 0.3);
-      color: #14b8a6;
-    }
-    body[data-theme='dark'] .condo-link:hover {
-      background: rgba(15, 118, 110, 0.25);
-      border-color: rgba(15, 118, 110, 0.5);
-    }
-
-    /* ===== NUEVO BOTÓN HYPERJUMP (cyan) ===== */
-    .hyperjump-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(53, 240, 255, 0.1);
-      border: 1px solid rgba(53, 240, 255, 0.2);
-      color: #0b9cb0;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .hyperjump-link:hover {
-      transform: translateY(-2px);
-      background: rgba(53, 240, 255, 0.2);
-      border-color: rgba(53, 240, 255, 0.4);
-      box-shadow: 0 8px 20px rgba(53, 240, 255, 0.15);
-      gap: 6px;
-      padding: 6px 14px;
-    }
-    .hyperjump-link svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      transition: transform 0.3s ease;
-    }
-    .hyperjump-link:hover svg {
-      transform: scale(1.1);
-    }
-    body[data-theme='dark'] .hyperjump-link {
-      background: rgba(53, 240, 255, 0.15);
-      border-color: rgba(53, 240, 255, 0.3);
-      color: #35f0ff;
-    }
-    body[data-theme='dark'] .hyperjump-link:hover {
-      background: rgba(53, 240, 255, 0.25);
-      border-color: rgba(53, 240, 255, 0.5);
-    }
-
-    /* Animación de texto en botones */
-    .medicloud-link span,
-    .axiom-link span,
-    .draiven-link span,
-    .estoquia-link span,
-    .wea-link span,
-    .postventa-link span,
-    .condo-link span,
-    .hyperjump-link span {
-      display: block;
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .medicloud-link:hover span,
-    .axiom-link:hover span,
-    .draiven-link:hover span,
-    .estoquia-link:hover span,
-    .wea-link:hover span,
-    .postventa-link:hover span,
-    .condo-link:hover span,
-    .hyperjump-link:hover span {
-      max-width: 80px;
-      opacity: 1;
-    }
-
     nav {
       display: flex;
       align-items: center;
@@ -2326,4 +1929,162 @@
     .status-dot--beta {
       background-color: #ffaa00;
       box-shadow: 0 0 8px #ffaa00;
+    }
+
+    /* ============================== */
+    /* LLAMADAS A LA ACCIÓN (HERO)    */
+    /* ============================== */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: 2px solid currentColor;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+    .cta-primary {
+      background: #000000;
+      border-color: #000000;
+      color: #ffffff;
+    }
+    .cta-primary:hover { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2); }
+    .cta-secondary { background: transparent; }
+    body[data-theme='dark'] .cta-primary {
+      background: #f0f0f0;
+      border-color: #f0f0f0;
+      color: #000000;
+    }
+    body[data-theme='dark'] .cta-primary:hover { box-shadow: 0 10px 28px rgba(255, 255, 255, 0.15); }
+    .cta-btn:focus-visible {
+      outline: 2px solid #64b4ff;
+      outline-offset: 3px;
+    }
+
+    /* ============================== */
+    /* PROYECTOS                      */
+    /* ============================== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    @media (min-width: 640px) {
+      .project-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+    }
+
+    .project-card {
+      --pc: #333333;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--pc) 25%, transparent);
+      background: color-mix(in srgb, var(--pc) 4%, transparent);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .project-card:hover,
+    .project-card:focus-visible {
+      transform: translate3d(0, -6px, 0);
+      border-color: var(--pc);
+      box-shadow: 0 14px 36px color-mix(in srgb, var(--pc) 22%, transparent);
+    }
+    .project-card:focus-visible {
+      outline: 2px solid var(--pc);
+      outline-offset: 3px;
+    }
+    .project-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: var(--pc);
+      background: color-mix(in srgb, var(--pc) 12%, transparent);
+    }
+    .project-icon svg {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .project-icon svg { transform: scale(1.1) rotate(-6deg); }
+    .project-card h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .project-card p {
+      margin: 0;
+      font-size: 13px;
+      text-align: left;
+      color: var(--muted-light);
+    }
+    body[data-theme='dark'] .project-card p { color: var(--muted-dark); }
+
+    /* Color de cada producto (claro / oscuro) */
+    .project-card[data-p='medicloud'] { --pc: #2563eb; }
+    .project-card[data-p='axiom']     { --pc: #8b5cf6; }
+    .project-card[data-p='draiven']   { --pc: #b38600; }
+    .project-card[data-p='estoquia']  { --pc: #333333; }
+    .project-card[data-p='wea']       { --pc: #ff2a5f; }
+    .project-card[data-p='postventa'] { --pc: #ff5a00; }
+    .project-card[data-p='condo']     { --pc: #0f766e; }
+    .project-card[data-p='hyperjump'] { --pc: #0b9cb0; }
+    body[data-theme='dark'] .project-card[data-p='medicloud'] { --pc: #60a5fa; }
+    body[data-theme='dark'] .project-card[data-p='axiom']     { --pc: #b478ff; }
+    body[data-theme='dark'] .project-card[data-p='draiven']   { --pc: #ffc107; }
+    body[data-theme='dark'] .project-card[data-p='estoquia']  { --pc: #ffffff; }
+    body[data-theme='dark'] .project-card[data-p='wea']       { --pc: #ff4d79; }
+    body[data-theme='dark'] .project-card[data-p='postventa'] { --pc: #ff7626; }
+    body[data-theme='dark'] .project-card[data-p='condo']     { --pc: #14b8a6; }
+    body[data-theme='dark'] .project-card[data-p='hyperjump'] { --pc: #35f0ff; }
+
+    /* ============================== */
+    /* LANZADOR LABS                  */
+    /* ============================== */
+    .labs-menu {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: 15px;
+      transform-origin: bottom right;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .float-buttons-container:not(.open) .labs-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(0.96);
+      pointer-events: none;
+    }
+    .labs-toggle .float-icon-wrapper svg { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease; }
+    .float-buttons-container.open .labs-toggle {
+      border-color: var(--btn-accent);
+      box-shadow: 0 0 25px var(--btn-accent-glow);
+    }
+    .float-buttons-container.open .labs-toggle .float-icon-wrapper svg {
+      color: var(--btn-accent);
+      transform: rotate(-20deg) scale(1.1);
+    }
+    @media (max-width: 768px) {
+      .labs-menu { gap: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .labs-menu, .project-card, .cta-btn { transition: none; }
     }

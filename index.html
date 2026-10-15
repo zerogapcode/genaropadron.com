@@ -12,6 +12,13 @@
   <meta property="og:title" content="GenaroPadron – Software & Hardware Development" />
   <meta property="og:description" content="GenaroPadron – Web development, multi-platform apps, software+hardware integration and electronics" />
   <meta property="og:image" content="https://genaropadron.com/images/ldev.png" />
+  <meta property="og:image:width" content="1536" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="GenaroPadron – Software & Hardware Development" />
+  <meta property="og:site_name" content="GenaroPadron" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="pt_BR" />
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -39,6 +46,15 @@
     "telephone": "+17542313968",
     "email": "gapcode@protonmail.com",
     "description": "Software and hardware development laboratory specializing in multi-platform applications, scalable web solutions, and electronic systems integration.",
+    "logo": "https://genaropadron.com/images/favicon.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+17542313968",
+      "email": "gapcode@protonmail.com",
+      "availableLanguage": ["English", "Spanish", "Portuguese"]
+    },
+    "knowsAbout": ["Mobile app development", "Web development", "Embedded systems", "IoT", "UX/UI design"],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -57,9 +73,9 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5" />
-  <script src="js/config.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=6" />
+  <script src="js/config.js?v=2" defer></script>
 </head>
 
 <body>
@@ -68,91 +84,30 @@
   <header id="topbar">
     <div class="brand">
       <button type="button" class="mini" id="brandMini" aria-label="Replay title animation" data-i18n-aria="aria_brand">&lt;/&gt;</button>
-      <!-- BOTÓN MEDICLOUD (original) -->
-      <a href="medicloud.html" class="medicloud-link" aria-label="MediCloud">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-          <polyline points="13 13 10 18 14 18 11 23"/>
-        </svg>
-        <span>MediCloud</span>
-      </a>
-      <!-- NUEVO BOTÓN AXIOM (morado con estrella) -->
-      <a href="axiom.html" class="axiom-link" aria-label="AXIOM">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-        <span>AXIOM</span>
-      </a>
-      <!-- NUEVO BOTÓN DRAIVEN (amarillo) -->
-      <a href="draiven.html" class="draiven-link" aria-label="DraiVen">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-        <span>DraiVen</span>
-      </a>
-      <!-- NUEVO BOTÓN ESTOQUIA (blanco) -->
-      <a href="estoquia.html" class="estoquia-link" aria-label="Estoquia">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-          <line x1="12" y1="22.08" x2="12" y2="12"></line>
-        </svg>
-        <span>Estoquia</span>
-      </a>
-
-      <!-- NUEVO BOTÓN WEA (magenta) -->
-      <a href="wea.html" class="wea-link" aria-label="Wea">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-        </svg>
-        <span>Wea</span>
-      </a>
-      <!-- NUEVO BOTÓN POSTVENTA (naranja) -->
-      <a href="postventa.html" class="postventa-link" aria-label="Postventa">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-        </svg>
-        <span>Postventa</span>
-      </a>
-      <!-- NUEVO BOTÓN CONDO (teal) -->
-      <a href="condo.html" class="condo-link" aria-label="Condo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
-        </svg>
-        <span>Condo</span>
-      </a>
-      <!-- NUEVO BOTÓN HYPERJUMP (cyan) -->
-      <a href="hyperjump.html" class="hyperjump-link" aria-label="HyperJump">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><path d="M2 12a10 10 0 0 1 20 0v2a2 2 0 0 1-2 2h-1.5a1.5 1.5 0 0 0-1.5 1.5v.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-.5A1.5 1.5 0 0 0 5.5 16H4a2 2 0 0 1-2-2v-2z"/>
-        </svg>
-        <span>HyperJump</span>
-      </a>
-
     </div>
     <button type="button" class="hamburger" id="hamburger" aria-label="Main menu" data-i18n-aria="aria_menu" aria-controls="nav" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <nav id="nav">
+    <nav id="nav" aria-label="Main navigation" data-i18n-aria="aria_nav">
       <a class="navlink" href="#inicio" data-i18n="nav_home">Home</a>
+      <a class="navlink" href="#proyectos" data-i18n="nav_projects">Projects</a>
       <a class="navlink" href="#servicios" data-i18n="nav_services">Services</a>
-      <a class="navlink" href="#departamentos" data-i18n="nav_departments">Departments</a>
       <a class="navlink" href="#contacto" data-i18n="nav_contact">Contact</a>
       <a class="navlink" href="#acerca" data-i18n="nav_about">About</a>
       <div class="mode-toggle">
-        <div class="seg">
-          <button data-mode="auto" class="active" data-i18n="mode_auto">Auto</button>
-          <button data-mode="light" data-i18n="mode_light">Light</button>
-          <button data-mode="dark" data-i18n="mode_dark">Dark</button>
+        <div class="seg" role="group" aria-label="Theme" data-i18n-aria="aria_theme">
+          <button type="button" data-mode="auto" class="active" aria-pressed="true" data-i18n="mode_auto">Auto</button>
+          <button type="button" data-mode="light" aria-pressed="false" data-i18n="mode_light">Light</button>
+          <button type="button" data-mode="dark" aria-pressed="false" data-i18n="mode_dark">Dark</button>
         </div>
       </div>
       <div class="mode-toggle">
-        <div class="seg">
-          <button data-lang="en" class="active">EN</button>
-          <button data-lang="es">ES</button>
-          <button data-lang="pt">PT</button>
+        <div class="seg" role="group" aria-label="Language" data-i18n-aria="aria_lang">
+          <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" data-lang="pt" aria-pressed="false">PT</button>
         </div>
       </div>
     </nav>
@@ -164,7 +119,7 @@
     <section id="inicio" class="hero">
       <div class="hero-inner">
         <div class="hero-left">
-          <h1 class="code-title"><span id="typedWrap">&lt;<span id="typed"></span>&gt;</span>
+          <h1 class="code-title"><span id="typedWrap">&lt;<span id="typed">GenaroPadron</span>&gt;</span>
             <small class="muted" id="typed-subtitle" data-i18n="hero_subtitle">Cutting-edge engineering for ambitious projects.</small></h1>
           <p class="hero-text" data-i18n="hero_p1">
             We transform complex ideas into market-ready products. As a technological innovation laboratory,
@@ -173,7 +128,101 @@
           <p class="hero-text" data-i18n="hero_p2">
             We design, develop, and build. Our end-to-end approach ensures that every line of code and physical
             component works in perfect synchronization to drive your vision forward.</p>
+          <div class="hero-cta">
+            <a href="contacto.html" class="cta-btn cta-primary" data-i18n="hero_cta_talk">Let's talk</a>
+            <a href="#proyectos" class="cta-btn cta-secondary" data-i18n="hero_cta_projects">See projects</a>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2 data-i18n="projects_title">Projects</h2>
+      <p class="lead" data-i18n="projects_lead">Products we designed and built end to end.</p>
+
+      <div class="project-grid">
+        <a href="medicloud.html" class="project-card" data-p="medicloud">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              <polyline points="13 13 10 18 14 18 11 23"/>
+            </svg>
+          </span>
+          <h3>MediCloud</h3>
+          <p data-i18n="proj_medicloud">Your medical practice in the cloud.</p>
+        </a>
+
+        <a href="axiom.html" class="project-card" data-p="axiom">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </span>
+          <h3>AXIOM</h3>
+          <p data-i18n="proj_axiom">Fluid intelligence for your Mac.</p>
+        </a>
+
+        <a href="draiven.html" class="project-card" data-p="draiven">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </span>
+          <h3>DraiVen</h3>
+          <p data-i18n="proj_draiven">Motorcycle taxi rides: fast, safe and fairly priced.</p>
+        </a>
+
+        <a href="estoquia.html" class="project-card" data-p="estoquia">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </span>
+          <h3>Estoquia</h3>
+          <p data-i18n="proj_estoquia">Point of sale and inventory for your store.</p>
+        </a>
+
+        <a href="wea.html" class="project-card" data-p="wea">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </span>
+          <h3>Wea</h3>
+          <p data-i18n="proj_wea">All your loyalty programs in one app.</p>
+        </a>
+
+        <a href="postventa.html" class="project-card" data-p="postventa">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </span>
+          <h3>Postventa</h3>
+          <p data-i18n="proj_postventa">Your dealership's after-sales service, in one app.</p>
+        </a>
+
+        <a href="condo.html" class="project-card" data-p="condo">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/>
+            </svg>
+          </span>
+          <h3>Condo</h3>
+          <p data-i18n="proj_condo">Condominium management for residents, gatehouse and administration.</p>
+        </a>
+
+        <a href="hyperjump.html" class="project-card" data-p="hyperjump">
+          <span class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><path d="M2 12a10 10 0 0 1 20 0v2a2 2 0 0 1-2 2h-1.5a1.5 1.5 0 0 0-1.5 1.5v.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-.5A1.5 1.5 0 0 0 5.5 16H4a2 2 0 0 1-2-2v-2z"/>
+            </svg>
+          </span>
+          <h3>HyperJump</h3>
+          <p data-i18n="proj_hyperjump">Endless vertical jumper across four dimensions.</p>
+        </a>
       </div>
     </section>
 
@@ -198,6 +247,11 @@
         </div>
         
         <div class="service-card">
+          <h3 data-i18n="service_design_title">Design & UX/UI</h3>
+          <p data-i18n="service_design_desc">Intuitive interfaces, optimized user experience, and attractive visual design for all our products. Focused on usability and aesthetics.</p>
+        </div>
+        
+        <div class="service-card">
           <h3 data-i18n="service_consulting_title">Technical Consulting</h3>
           <p data-i18n="service_consulting_desc">Specialized advice on software architecture, process optimization, and technology strategies. We maximize the value of your technological investment.</p>
         </div>
@@ -205,38 +259,6 @@
         <div class="service-card">
           <h3 data-i18n="service_maintenance_title">Maintenance & Support</h3>
           <p data-i18n="service_maintenance_desc">Continuous maintenance services, updates, and technical support to ensure optimal operation of your systems in the long term.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="departamentos">
-      <h2 data-i18n="dept_title">Departments</h2>
-      <p class="lead" data-i18n="dept_lead">Specialized teams working in synergy to offer complete and innovative solutions.</p>
-      
-      <div class="service-grid">
-        <div class="service-card">
-          <h3 data-i18n="dept_ios_title">Mobile & Desktop Apps</h3>
-          <p data-i18n="dept_ios_desc">Specialists in creating high-performance applications for any operating system (Mobile & Desktop) with fluid interfaces and exceptional user experiences.</p>
-        </div>
-        
-        <div class="service-card">
-          <h3 data-i18n="dept_eng_title">Software Engineering</h3>
-          <p data-i18n="dept_eng_desc">Systems architecture, backend development, databases, and APIs. Modern and scalable technologies to build robust and maintainable solutions.</p>
-        </div>
-        
-        <div class="service-card">
-          <h3 data-i18n="dept_elec_title">Electronics & IoT</h3>
-          <p data-i18n="dept_elec_desc">Circuit design, embedded systems, sensors, and connectivity. Bridge between the digital and physical worlds, creating tangible and innovative solutions.</p>
-        </div>
-        
-        <div class="service-card">
-          <h3 data-i18n="dept_design_title">Design & UX/UI</h3>
-          <p data-i18n="dept_design_desc">Intuitive interfaces, optimized user experience, and attractive visual design for all our products. Focused on usability and aesthetics.</p>
-        </div>
-        
-        <div class="service-card">
-          <h3 data-i18n="dept_qa_title">Quality Control</h3>
-          <p data-i18n="dept_qa_desc">Exhaustive testing, test automation, and quality assurance at every stage of development. Committed to excellence and reliability.</p>
         </div>
       </div>
     </section>
@@ -347,92 +369,105 @@
   </div>
 
   <div class="float-buttons-container">
-    <a href="simulation.html" id="simulation-float-btn" class="float-btn" aria-label="Open Simulation" data-i18n-aria="aria_sim">
+    <button type="button" id="labs-toggle" class="float-btn labs-toggle" aria-expanded="false" aria-controls="labs-menu" aria-label="Open Labs" data-i18n-aria="aria_labs">
       <span class="float-icon-wrapper">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          <path d="M9 3h6"/>
+          <path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9.5V3"/>
+          <path d="M7 15h10"/>
         </svg>
       </span>
-      <span class="btn-text" data-i18n="float_sim">Simulation</span>
-    </a>
-
-    <a href="pitfall.html" id="pitfall-float-btn" class="float-btn" aria-label="Open Pitfall" data-i18n-aria="aria_pitfall">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-      </span>
-      <span class="btn-text">Pitfall</span>
-    </a>
-
-    <button type="button" id="debug-float-btn" class="float-btn" aria-label="Open DebugBot" data-i18n-aria="aria_debug">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="8" y="2" width="8" height="12" rx="4" />
-          <path d="M12 14v4" />
-          <path d="M16 18l-4-4-4 4" />
-          <path d="M20 10l-4 2" />
-          <path d="M4 10l4 2" />
-          <path d="M20 6l-4 2" />
-          <path d="M4 6l4 2" />
-        </svg>
-      </span>
-      <span class="btn-text">DebugBot</span>
+      <span class="btn-text">Labs</span>
     </button>
 
-    <button type="button" id="ai-float-btn" class="float-btn" aria-label="Open RickGPT assistant" data-i18n-aria="aria_ai">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="11" width="18" height="10" rx="2" />
-          <circle cx="12" cy="16" r="2" />
-          <line x1="12" y1="6" x2="12" y2="11" />
-          <circle cx="12" cy="4" r="2" />
-        </svg>
-      </span>
-      <span class="btn-text">RickGPT</span>
-      <span class="status-dot"></span>
-    </button>
+    <div class="labs-menu" id="labs-menu">
+      <a href="simulation.html" id="simulation-float-btn" class="float-btn" aria-label="Open Simulation" data-i18n-aria="aria_sim">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </span>
+        <span class="btn-text" data-i18n="float_sim">Simulation</span>
+      </a>
 
-    <button type="button" id="pagos-float-btn" class="float-btn" aria-label="Open Payments" data-i18n-aria="aria_pay">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-          <line x1="1" y1="10" x2="23" y2="10"></line>
-          <line x1="6" y1="8" x2="6" y2="8"></line>
-          <line x1="10" y1="8" x2="10" y2="8"></line>
-          <line x1="14" y1="8" x2="14" y2="8"></line>
-        </svg>
-      </span>
-      <span class="btn-text" data-i18n="float_pay">Payments</span>
-    </button>
+      <a href="pitfall.html" id="pitfall-float-btn" class="float-btn" aria-label="Open Pitfall" data-i18n-aria="aria_pitfall">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </span>
+        <span class="btn-text">Pitfall</span>
+      </a>
 
-    <a href="galeria.html" id="galeria-float-btn" class="float-btn" aria-label="Open Gallery" data-i18n-aria="aria_gallery">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-          <circle cx="8.5" cy="8.5" r="1.5"></circle>
-          <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-      </span>
-      <span class="btn-text" data-i18n="float_gallery">Gallery</span>
-    </a>
+      <button type="button" id="debug-float-btn" class="float-btn" aria-label="Open DebugBot" data-i18n-aria="aria_debug">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="2" width="8" height="12" rx="4" />
+            <path d="M12 14v4" />
+            <path d="M16 18l-4-4-4 4" />
+            <path d="M20 10l-4 2" />
+            <path d="M4 10l4 2" />
+            <path d="M20 6l-4 2" />
+            <path d="M4 6l4 2" />
+          </svg>
+        </span>
+        <span class="btn-text">DebugBot</span>
+      </button>
 
-    <a href="friendbot.html" id="alex-float-btn" class="float-btn" aria-label="Open Alex BETA" data-i18n-aria="aria_alex">
-      <span class="float-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-          <path d="M16 11h4"></path>
-          <path d="M20 15h-4"></path>
-          <path d="M8 11H4"></path>
-          <path d="M4 15h4"></path>
-        </svg>
-      </span>
-      <span class="btn-text">Alex BETA</span>
-      <span class="status-dot status-dot--beta"></span>
-    </a>
+      <button type="button" id="ai-float-btn" class="float-btn" aria-label="Open RickGPT assistant" data-i18n-aria="aria_ai">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="10" rx="2" />
+            <circle cx="12" cy="16" r="2" />
+            <line x1="12" y1="6" x2="12" y2="11" />
+            <circle cx="12" cy="4" r="2" />
+          </svg>
+        </span>
+        <span class="btn-text">RickGPT</span>
+        <span class="status-dot"></span>
+      </button>
+
+      <button type="button" id="pagos-float-btn" class="float-btn" aria-label="Open Payments" data-i18n-aria="aria_pay">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+            <line x1="6" y1="8" x2="6" y2="8"></line>
+            <line x1="10" y1="8" x2="10" y2="8"></line>
+            <line x1="14" y1="8" x2="14" y2="8"></line>
+          </svg>
+        </span>
+        <span class="btn-text" data-i18n="float_pay">Payments</span>
+      </button>
+
+      <a href="galeria.html" id="galeria-float-btn" class="float-btn" aria-label="Open Gallery" data-i18n-aria="aria_gallery">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </span>
+        <span class="btn-text" data-i18n="float_gallery">Gallery</span>
+      </a>
+
+      <a href="friendbot.html" id="alex-float-btn" class="float-btn" aria-label="Open Alex BETA" data-i18n-aria="aria_alex">
+        <span class="float-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+            <path d="M16 11h4"></path>
+            <path d="M20 15h-4"></path>
+            <path d="M8 11H4"></path>
+            <path d="M4 15h4"></path>
+          </svg>
+        </span>
+        <span class="btn-text">Alex BETA</span>
+        <span class="status-dot status-dot--beta"></span>
+      </a>
+    </div>
   </div>
 
   <div id="debug-chat-window" role="dialog" aria-labelledby="debug-chat-title">
@@ -505,6 +540,6 @@
   </div>
 
   
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=2" defer></script>
 </body>
 </html>
