@@ -30,9 +30,6 @@
       LANG: 'protonlab_lang'
     };
 
-    // El historial de RickGPT ya vive en memoria; se borra el que guardaba el antiguo interceptor de config.js
-    try { localStorage.removeItem('protonlab_chats'); } catch (e) {}
-
     function setPreference(key, value) {
       try {
         localStorage.setItem(key, value);
@@ -77,8 +74,6 @@
     let isDebugging = false;
     let isServerAvailable = false;
     let currentSessionId = null;
-    let aiHistory = []; // historial de la sesión de RickGPT que se envía al backend
-    const AI_HISTORY_MAX = 14;
     let debugEditor = null;
     let editorInitialized = false;
 
@@ -1594,7 +1589,6 @@
         addAIMessage(currentLang === 'en' ? 'Connecting to RickGPT...' : 'Conectando con RickGPT...', false);
         
         currentSessionId = "ai-session-" + Date.now();
-        aiHistory = [];
 
         const testResponse = await fetch(CONFIG.API_SERVER_URL, {
           method: 'POST',
@@ -1724,8 +1718,7 @@
             message: text,
             session_id: currentSessionId,
             assistant: "rickgpt",
-            lang: currentLang,
-            history: aiHistory
+            lang: currentLang
           })
         });
 
@@ -1740,11 +1733,6 @@
         if (data.status === 'success' && data.response) {
           addAIMessage(data.response);
           isServerAvailable = true;
-          aiHistory.push(
-            { role: "user", parts: [{ text }] },
-            { role: "model", parts: [{ text: data.response }] }
-          );
-          aiHistory = aiHistory.slice(-AI_HISTORY_MAX);
         } else {
           throw new Error('Respuesta inválida del servidor');
         }
