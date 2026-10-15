@@ -1255,19 +1255,16 @@
             try {
                 updateStatus('connecting', 'Conectando...');
                 
+                // El Worker de Cloudflare solo atiende POST y a un GET responde 405:
+                // cualquier respuesta HTTP basta para saber que está en línea
                 const response = await fetch(CONFIG.API_SERVER_URL, {
                     method: 'GET',
                     headers: getNgrokHeaders()
                 });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    isServerAvailable = true;
-                    updateStatus('online', '✅ Conectado');
-                    console.log('✅ Servidor funcionando:', data);
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
+
+                isServerAvailable = true;
+                updateStatus('online', '✅ Conectado');
+                console.log('✅ Servidor en línea (HTTP ' + response.status + ')');
             } catch (error) {
                 console.error('❌ Error de conexión inicial:', error);
                 isServerAvailable = false;
@@ -1309,14 +1306,12 @@
             // Verificar servidor antes de enviar
             if (!isServerAvailable) {
                 try {
-                    const healthCheck = await fetch(CONFIG.API_SERVER_URL, {
+                    await fetch(CONFIG.API_SERVER_URL, {
                         headers: getNgrokHeaders()
                     });
-                    
-                    if (healthCheck.ok) {
-                        isServerAvailable = true;
-                        updateStatus('online', '✅ Reconectado');
-                    }
+
+                    isServerAvailable = true;
+                    updateStatus('online', '✅ Reconectado');
                 } catch (e) {
                     // Continuar con estado offline
                 }
@@ -1329,84 +1324,29 @@
             }
             
             try {
-                // Usar streaming con fetch y ReadableStream
-                console.log('🌐 Iniciando stream al servidor...');
-                
+                // El Worker responde un JSON { status, response } (sin streaming).
+                // El historial lo añade el interceptor de js/config.js según session_id.
+                console.log('🌐 Enviando mensaje al servidor...');
+
                 const response = await fetch(CONFIG.API_SERVER_URL, {
                     method: 'POST',
                     headers: getNgrokHeaders(),
                     body: JSON.stringify({
                         message: message,
                         assistant: ASSISTANT_TYPE,
-                        session_id: sessionId,
-                        stream: true
+                        session_id: sessionId
                     })
                 });
-                
-                if (!response.ok) {
-                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+
+                const data = await response.json().catch(() => ({}));
+
+                if (!response.ok || data.status !== 'success' || !data.response) {
+                    throw new Error(data.response || `Error ${response.status}`);
                 }
-                
-                // Leer el stream de respuesta
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                
-                let hasFinished = false;
-                
-                try {
-                    while (isStreaming) {
-                        const { done, value } = await reader.read();
-                        if (done) {
-                            console.log('✅ Stream terminado normalmente');
-                            if (!hasFinished) {
-                                finishStreamingSuccessfully(currentMessageId, currentStreamResponse, message);
-                                hasFinished = true;
-                            }
-                            break;
-                        }
-                        
-                        const chunk = decoder.decode(value);
-                        const lines = chunk.split('\n\n');
-                        
-                        for (const line of lines) {
-                            if (line.startsWith('data: ')) {
-                                try {
-                                    const data = JSON.parse(line.slice(6));
-                                    
-                                    if (data.error) {
-                                        throw new Error(data.error);
-                                    }
-                                    
-                                    if (data.token) {
-                                        currentStreamResponse += data.token;
-                                        updateStreamingMessage(currentMessageId, currentStreamResponse, false);
-                                    }
-                                    
-                                    if (data.done) {
-                                        console.log('✅ Recibido evento done del servidor');
-                                        if (!hasFinished) {
-                                            finishStreamingSuccessfully(currentMessageId, currentStreamResponse, message);
-                                            hasFinished = true;
-                                        }
-                                        reader.cancel();
-                                        return;
-                                    }
-                                } catch (e) {
-                                    console.warn('⚠️ Error parseando línea:', line, e);
-                                }
-                            }
-                        }
-                    }
-                } catch (streamError) {
-                    console.error('❌ Error en lectura de stream:', streamError);
-                    if (!hasFinished) {
-                        finishStreamingWithError(currentMessageId, `Error de stream: ${streamError.message}`);
-                        hasFinished = true;
-                    }
-                } finally {
-                    reader.cancel().catch(() => {});
-                }
-                
+
+                currentStreamResponse = data.response;
+                finishStreamingSuccessfully(currentMessageId, currentStreamResponse, message);
+
             } catch (error) {
                 console.error('❌ Error en fetch:', error);
                 if (currentStreamResponse && currentStreamResponse.trim()) {
