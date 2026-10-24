@@ -21,14 +21,25 @@
 <body>
 <main>
 <h1>HyperJump — Privacy Policy</h1>
-<p class="muted">Effective date: October 14, 2026 · <a href="#es">Leer en español</a> · <a href="hyperjump.html">HyperJump</a></p>
+<p class="muted">Effective date: October 24, 2026 · <a href="#es">Leer en español</a> · <a href="hyperjump.html">HyperJump</a></p>
 
 <p>This policy explains how the mobile game <strong>HyperJump</strong> (Android package <code>com.hiperjump.app</code>), published by <strong>ZeroGap Code</strong> ("we"), handles information. If you have any questions, contact us at <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
 
-<h2>1. Information we do not collect</h2>
-<p>HyperJump does not require an account and we do not ask for your name, email, phone number, contacts, photos or precise location. Your game progress (scores, shards, upgrades, settings) is stored only on your device and is never sent to us.</p>
+<h2>1. Information stored on your device</h2>
+<p>We do not ask for your phone number, contacts, photos or precise location. Your game progress (shards, upgrades, settings, local records) is stored on your device.</p>
 
-<h2>2. Advertising (Google AdMob)</h2>
+<h2>2. Google sign-in and global leaderboard</h2>
+<p>To play HyperJump you sign in with your Google account (only an internet connection is needed the first time). Signing in also lets you compete on the global leaderboard. For this we use Google Firebase (Firebase Authentication, Cloud Functions and Cloud Firestore) to process:</p>
+<ul>
+  <li><strong>Your Google account basics</strong> (name and email address), received by Firebase Authentication to identify you. Your email is never shown to other players.</li>
+  <li><strong>Your public name</strong>: by default the name on your Google account, which you can change in <em>Settings → Account</em>. It is shown to all players next to your score.</li>
+  <li><strong>A user ID</strong> created by Firebase, and <strong>your scores</strong>: best height, points, difficulty, run duration and submission time, used to build the leaderboard and to detect cheating.</li>
+  <li><strong>An app integrity check</strong> (Firebase App Check with Google Play Integrity) that confirms requests come from the genuine app.</li>
+</ul>
+<p>We use this information only to run the leaderboard. We do not sell it or use it for advertising. It is processed by Google as our service provider: see the <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>.</p>
+<p><strong>Deleting your account.</strong> You can delete your leaderboard account and all its data at any time in the game under <em>Settings → Account → Delete account</em>, or by following the instructions at <a href="hyperjump-eliminar-cuenta.html">genaropadron.com/hyperjump-eliminar-cuenta.html</a>. Signing out keeps your entry; deleting removes it within minutes. After deleting it, you will need to sign in again to keep playing.</p>
+
+<h2>3. Advertising (Google AdMob)</h2>
 <p>Some versions of the game show ads served by Google AdMob, including optional rewarded ads (for example, to revive) and occasional full-screen ads between runs. Versions without ads do not start the advertising SDK and do not use the Advertising ID. When ads are enabled, to serve, limit and measure ads and to prevent fraud, the Google Mobile Ads SDK may collect and process:</p>
 <ul>
   <li>Device identifiers, such as the Android Advertising ID;</li>
@@ -38,32 +49,43 @@
 <p>This data is processed by Google under its own policies: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 <p><strong>Your choices.</strong> If you are in the European Economic Area, the United Kingdom or Switzerland, the game asks for your consent before showing personalized ads. Where applicable U.S. state privacy laws apply, you can opt out of the sale or sharing of personal information for advertising. You can review or change these choices at any time in the game under <em>Settings → Ad privacy</em>. You can also reset or delete your Advertising ID in your device's settings (Settings → Google → Ads, or Settings → Privacy → Ads).</p>
 
-<h2>3. In-app purchases</h2>
+<h2>4. In-app purchases</h2>
 <p>When available, optional purchases (such as removing ads or buying shards) are processed entirely by Google Play. We do not receive or store your payment details; we only receive confirmation of the purchase so the game can unlock it.</p>
 
-<h2>4. Children</h2>
+<h2>5. Children</h2>
 <p>HyperJump is not directed to children under 13, and we do not knowingly collect personal information from children. Ads are limited to content rated for teens.</p>
 
-<h2>5. Data retention and deletion</h2>
-<p>Game data stays on your device until you clear the app's data or uninstall it. Data processed by Google for advertising is retained according to Google's policies. To ask us anything about your data, email <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
+<h2>6. Data retention and deletion</h2>
+<p>Game data stays on your device until you clear the app's data or uninstall it. Leaderboard data is kept while your account exists and is deleted when you delete your account. Records of rejected or suspicious score submissions may be kept for up to 12 months to prevent cheating, unless you delete your account. Data processed by Google for advertising is retained according to Google's policies. To ask us anything about your data, email <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
 
-<h2>6. Security</h2>
-<p>Communication between the app and Google's advertising and Play services uses encrypted connections (HTTPS).</p>
+<h2>7. Security</h2>
+<p>Communication between the app and Google's advertising, Play and Firebase services uses encrypted connections (HTTPS).</p>
 
-<h2>7. Changes</h2>
+<h2>8. Changes</h2>
 <p>We may update this policy. The new version will be posted on this page with a new effective date.</p>
 
 <hr>
 
 <h1 id="es">HyperJump — Política de privacidad</h1>
-<p class="muted">Vigente desde el 14 de octubre de 2026</p>
+<p class="muted">Vigente desde el 24 de octubre de 2026</p>
 
 <p>Esta política explica cómo el juego <strong>HyperJump</strong> (paquete de Android <code>com.hiperjump.app</code>), publicado por <strong>ZeroGap Code</strong> ("nosotros"), trata la información. Para cualquier consulta, escríbenos a <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
 
-<h2>1. Información que no recopilamos</h2>
-<p>HyperJump no requiere cuenta y no pide tu nombre, correo, teléfono, contactos, fotos ni ubicación precisa. Tu progreso (récords, fragmentos, mejoras, ajustes) se guarda solo en tu dispositivo y nunca se nos envía.</p>
+<h2>1. Información guardada en tu dispositivo</h2>
+<p>No pedimos tu teléfono, contactos, fotos ni ubicación precisa. Tu progreso (fragmentos, mejoras, ajustes, récords locales) se guarda en tu dispositivo.</p>
 
-<h2>2. Publicidad (Google AdMob)</h2>
+<h2>2. Inicio de sesión con Google y ranking mundial</h2>
+<p>Para jugar a HyperJump inicias sesión con tu cuenta de Google (solo la primera vez necesitas conexión a internet). Al iniciar sesión también compites en el ranking mundial. Para esto usamos Google Firebase (Firebase Authentication, Cloud Functions y Cloud Firestore) para tratar:</p>
+<ul>
+  <li><strong>Datos básicos de tu cuenta de Google</strong> (nombre y correo), que recibe Firebase Authentication para identificarte. Tu correo nunca se muestra a otros jugadores.</li>
+  <li><strong>Tu nombre público</strong>: por defecto el de tu cuenta de Google; puedes cambiarlo en <em>Ajustes → Cuenta</em>. Todos los jugadores lo ven junto a tu puntaje.</li>
+  <li><strong>Un ID de usuario</strong> creado por Firebase y <strong>tus puntajes</strong>: mejor altura, puntos, dificultad, duración de la partida y hora de envío, para armar el ranking y detectar trampas.</li>
+  <li><strong>Una verificación de integridad</strong> (Firebase App Check con Google Play Integrity) que confirma que las solicitudes vienen de la app original.</li>
+</ul>
+<p>Usamos esta información solo para el ranking. No la vendemos ni la usamos para publicidad. Google la procesa como proveedor de servicios: consulta la <a href="https://firebase.google.com/support/privacy">información de privacidad de Firebase</a>.</p>
+<p><strong>Eliminar tu cuenta.</strong> Puedes eliminar tu cuenta del ranking y todos sus datos cuando quieras en <em>Ajustes → Cuenta → Eliminar cuenta</em>, o siguiendo las instrucciones en <a href="hyperjump-eliminar-cuenta.html">genaropadron.com/hyperjump-eliminar-cuenta.html</a>. Cerrar sesión conserva tu puesto; eliminar la cuenta lo borra en minutos. Después de eliminarla tendrás que volver a iniciar sesión para seguir jugando.</p>
+
+<h2>3. Publicidad (Google AdMob)</h2>
 <p>Algunas versiones del juego muestran anuncios de Google AdMob, incluidos anuncios recompensados opcionales (por ejemplo, para revivir) y anuncios ocasionales a pantalla completa entre partidas. Las versiones sin anuncios no inician el SDK de publicidad ni usan el ID de publicidad. Cuando los anuncios están activos, para mostrarlos, limitarlos y medirlos y para prevenir fraudes, el SDK de anuncios de Google puede recopilar y procesar:</p>
 <ul>
   <li>Identificadores del dispositivo, como el ID de publicidad de Android;</li>
@@ -73,19 +95,19 @@
 <p>Google procesa estos datos según sus propias políticas: <a href="https://policies.google.com/technologies/partner-sites?hl=es">Cómo usa Google la información de sitios o aplicaciones que utilizan sus servicios</a> y la <a href="https://policies.google.com/privacy?hl=es">Política de Privacidad de Google</a>.</p>
 <p><strong>Tus opciones.</strong> Si estás en el Espacio Económico Europeo, el Reino Unido o Suiza, el juego te pide consentimiento antes de mostrar anuncios personalizados. Donde aplican leyes estatales de privacidad de EE. UU., puedes oponerte a la venta o el intercambio de datos personales con fines publicitarios. Puedes revisar o cambiar estas opciones cuando quieras en <em>Ajustes → Privacidad de anuncios</em>. También puedes restablecer o borrar tu ID de publicidad en los ajustes del dispositivo.</p>
 
-<h2>3. Compras dentro de la app</h2>
+<h2>4. Compras dentro de la app</h2>
 <p>Cuando están disponibles, las compras opcionales (como quitar anuncios o comprar fragmentos) las procesa por completo Google Play. No recibimos ni guardamos tus datos de pago; solo recibimos la confirmación de la compra para desbloquearla.</p>
 
-<h2>4. Menores</h2>
+<h2>5. Menores</h2>
 <p>HyperJump no está dirigido a menores de 13 años y no recopilamos a sabiendas datos personales de menores. Los anuncios se limitan a contenido apto para adolescentes.</p>
 
-<h2>5. Conservación y eliminación</h2>
-<p>Los datos del juego permanecen en tu dispositivo hasta que borres los datos de la app o la desinstales. Los datos que Google procesa para publicidad se conservan según sus políticas. Para cualquier consulta sobre tus datos, escribe a <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
+<h2>6. Conservación y eliminación</h2>
+<p>Los datos del juego permanecen en tu dispositivo hasta que borres los datos de la app o la desinstales. Los datos del ranking se conservan mientras exista tu cuenta y se borran al eliminarla. Los registros de envíos de puntaje rechazados o sospechosos pueden conservarse hasta 12 meses para prevenir trampas, salvo que elimines tu cuenta. Los datos que Google procesa para publicidad se conservan según sus políticas. Para cualquier consulta sobre tus datos, escribe a <a href="mailto:yankeevictor73@gmail.com">yankeevictor73@gmail.com</a>.</p>
 
-<h2>6. Seguridad</h2>
-<p>La comunicación entre la app y los servicios de publicidad y de Google Play usa conexiones cifradas (HTTPS).</p>
+<h2>7. Seguridad</h2>
+<p>La comunicación entre la app y los servicios de publicidad, de Google Play y de Firebase usa conexiones cifradas (HTTPS).</p>
 
-<h2>7. Cambios</h2>
+<h2>8. Cambios</h2>
 <p>Podemos actualizar esta política. La nueva versión se publicará en esta página con una nueva fecha de vigencia.</p>
 </main>
 </body>
