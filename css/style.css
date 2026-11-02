@@ -2047,6 +2047,7 @@
     .project-card[data-p='postventa'] { --pc: #ff5a00; }
     .project-card[data-p='condo']     { --pc: #0f766e; }
     .project-card[data-p='hyperjump'] { --pc: #0b9cb0; }
+    .project-card[data-p='hypernova'] { --pc: #c2189f; }
     body[data-theme='dark'] .project-card[data-p='medicloud'] { --pc: #60a5fa; }
     body[data-theme='dark'] .project-card[data-p='axiom']     { --pc: #b478ff; }
     body[data-theme='dark'] .project-card[data-p='draiven']   { --pc: #ffc107; }
@@ -2055,6 +2056,7 @@
     body[data-theme='dark'] .project-card[data-p='postventa'] { --pc: #ff7626; }
     body[data-theme='dark'] .project-card[data-p='condo']     { --pc: #14b8a6; }
     body[data-theme='dark'] .project-card[data-p='hyperjump'] { --pc: #35f0ff; }
+    body[data-theme='dark'] .project-card[data-p='hypernova'] { --pc: #ff4fd8; }
 
     /* ============================== */
     /* LANZADOR LABS                  */

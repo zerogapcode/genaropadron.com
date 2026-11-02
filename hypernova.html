@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HyperNova — Combina cuerpos celestes y desata supernovas</title>
+<meta name="description" content="HyperNova: juego de combinar 3 para Android. Combina cometas, lunas, planetas y galaxias, crea púlsares, supernovas y agujeros negros, y viaja en 60 niveles del Sistema Solar al Big Bang.">
+<meta name="theme-color" content="#07060F">
+<meta property="og:title" content="HyperNova — Combina cuerpos celestes y desata supernovas">
+<meta property="og:description" content="Un rompecabezas retro neón de combinar 3: 60 niveles del Sistema Solar al Big Bang. Próximamente en Android.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://genaropadron.com/hypernova.html">
+<meta property="og:image" content="https://genaropadron.com/images/hypernova/feature_graphic.png">
+<link rel="canonical" href="https://genaropadron.com/hypernova.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307060F'/%3E%3Cg fill='none' stroke-width='1.8'%3E%3Ccircle cx='16' cy='16' r='5' stroke='%23FFE45C'/%3E%3Ccircle cx='16' cy='16' r='11' stroke='%23FF4FD8'/%3E%3Cpath d='M16 2v6M16 24v6M2 16h6M24 16h6' stroke='%2335F0FF'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#07060F}
+a{color:#35F0FF}a:hover{color:#EDEBFF}
+a[aria-disabled="true"]{cursor:default}
+</style>
+</head>
+<body>
+<div style="background: #07060F; color: #EDEBFF; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 1rem; line-height: 1.6; min-height: 100vh">
+
+<!-- Navegación -->
+<header style="border-bottom: 1px solid rgba(53, 240, 255, 0.18)">
+<nav aria-label="Principal" style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem">
+<a href="#inicio" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: #EDEBFF">
+<img src="images/hypernova/icon.png" alt="" style="width: 40px; height: 40px; border-radius: 10px; display: block">
+<span style="font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.08em"><span style="color: #35F0FF">HYPER</span><span style="color: #FF4FD8">NOVA</span></span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; font-size: 0.9rem">
+<a href="#cuerpos" style="color: #B3ADDB; text-decoration: none; padding: 0.75rem 0">Cuerpos celestes</a>
+<a href="#fenomenos" style="color: #B3ADDB; text-decoration: none; padding: 0.75rem 0">Fenómenos</a>
+<a href="#sectores" style="color: #B3ADDB; text-decoration: none; padding: 0.75rem 0">Sectores</a>
+<a href="#descargar" style="color: #07060F; background: #35F0FF; text-decoration: none; font-weight: 600; padding: 0.7rem 1.1rem; border-radius: 8px">Descargar</a>
+</div>
+</nav>
+</header>
+
+<!-- Hero -->
+<section id="inicio" style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem 4rem; display: flex; flex-wrap: wrap; align-items: center; gap: 3rem">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 1.5rem">
+<p style="margin: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: #35F0FF">Combina 3 · Android</p>
+<h1 style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: 0.01em">Combina cuerpos celestes. <span style="color: #FF4FD8; text-shadow: 0 0 10px rgba(255, 79, 216, 0.55), 0 0 24px rgba(255, 79, 216, 0.55)">Desata supernovas.</span></h1>
+<p style="margin: 0; font-size: 1.1rem; color: #B3ADDB; max-width: 34rem">Cometas, lunas, planetas y galaxias en un rompecabezas retro neón. Haz combinaciones, crea púlsares y agujeros negros, y viaja del Sistema Solar hasta la primera luz del universo.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 0.5rem">
+<a href="#descargar" aria-disabled="true" style="display: inline-flex; align-items: center; gap: 0.6rem; min-height: 52px; padding: 0 1.5rem; border-radius: 10px; background: #35F0FF; color: #07060F; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 0 18px rgba(53, 240, 255, 0.45)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l14 9-14 9z"></path></svg>
+Próximamente en Google Play</a>
+<a href="#fenomenos" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 1.5rem; border-radius: 10px; border: 1px solid rgba(237, 235, 255, 0.3); color: #EDEBFF; text-decoration: none; font-size: 1rem">Ver cómo se juega</a>
+</div>
+<dl style="margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 2rem">
+<div><dt style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #B3ADDB">Niveles</dt><dd style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2rem; color: #FFE45C">60</dd></div>
+<div><dt style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #B3ADDB">Sectores</dt><dd style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2rem; color: #7CFF9E">6</dd></div>
+<div><dt style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #B3ADDB">Pistas synthwave</dt><dd style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2rem; color: #FF9F43">8</dd></div>
+</dl>
+</div>
+<div style="flex: 1 1 480px; min-width: 0">
+<img src="images/hypernova/feature_graphic.png" alt="Arte de HyperNova: una supernova, un agujero negro y cuerpos celestes neón junto al logotipo" style="display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255, 79, 216, 0.35); box-shadow: 0 0 40px rgba(255, 79, 216, 0.25)">
+</div>
+</section>
+
+<!-- Cuerpos celestes -->
+<section id="cuerpos" style="border-top: 1px solid rgba(139, 124, 255, 0.2)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; display: flex; flex-direction: column; gap: 2.5rem">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 40rem">
+<p style="margin: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8B7CFF">Las piezas</p>
+<h2 style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15">Siete cuerpos celestes</h2>
+<p style="margin: 0; color: #B3ADDB">Alinea tres o más del mismo tipo para hacerlos desaparecer. Cada uno tiene su propio color de neón.</p>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem">
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(53, 240, 255, 0.25)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#35F0FF" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="32" r="8"></circle><path d="M22 26L40 8M24 31L42 18M19 24L30 6"></path></svg>
+<span style="font-weight: 600; color: #35F0FF">Cometa</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(139, 124, 255, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#8B7CFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 6a18 18 0 1 0 12 30A15 15 0 0 1 30 6z"></path></svg>
+<span style="font-weight: 600; color: #A99FFF">Luna</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(255, 159, 67, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#FF9F43" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="11"></circle><ellipse cx="24" cy="24" rx="21" ry="7" transform="rotate(-18 24 24)"></ellipse></svg>
+<span style="font-weight: 600; color: #FF9F43">Planeta</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(255, 228, 92, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#FFE45C" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"></path></svg>
+<span style="font-weight: 600; color: #FFE45C">Estrella</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(255, 79, 216, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#FF4FD8" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M24 24c0-4 4-6 7-4s3 8-2 11-13 1-14-6 6-15 14-14 14 9 12 17"></path></svg>
+<span style="font-weight: 600; color: #FF4FD8">Galaxia</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(124, 255, 158, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#7CFF9E" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l14 20-14 20-14-20z"></path><path d="M10 24h28M24 4v40"></path></svg>
+<span style="font-weight: 600; color: #7CFF9E">Cristal de olivino</span></li>
+<li style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 1rem; border-radius: 14px; background: #100E1F; border: 1px solid rgba(255, 79, 106, 0.3)">
+<svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#FF4F6A" stroke-width="2.5" aria-hidden="true"><circle cx="24" cy="24" r="9"></circle><circle cx="24" cy="24" r="16" stroke-dasharray="3 5"></circle></svg>
+<span style="font-weight: 600; color: #FF6F86">Enana roja</span></li>
+</ul>
+</div>
+</section>
+
+<!-- Fenómenos -->
+<section id="fenomenos" style="border-top: 1px solid rgba(255, 79, 216, 0.2)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; display: flex; flex-direction: column; gap: 2.5rem">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 40rem">
+<p style="margin: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: #FF4FD8">Combinaciones especiales</p>
+<h2 style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15">Fenómenos astrofísicos reales</h2>
+<p style="margin: 0; color: #B3ADDB">Las combinaciones grandes no solo dan puntos: crean objetos del universo con su propio comportamiento.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem">
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(53, 240, 255, 0.25); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #35F0FF; letter-spacing: 0.1em">4 EN LÍNEA</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Púlsar</h3>
+<p style="margin: 0; color: #B3ADDB">Dispara un haz en la dirección de su eje. El eje gira 45° cada turno, así que elige bien el momento.</p>
+</article>
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(255, 228, 92, 0.25); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #FFE45C; letter-spacing: 0.1em">FORMA DE L O T</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Supernova</h3>
+<p style="margin: 0; color: #B3ADDB">Explota a su alrededor y deja una estrella de neutrones, que se convierte en un púlsar nuevo.</p>
+</article>
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(255, 79, 216, 0.25); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #FF4FD8; letter-spacing: 0.1em">5 EN LÍNEA</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Agujero negro</h3>
+<p style="margin: 0; color: #B3ADDB">Absorbe todos los cuerpos de un color, deforma el tablero y lanza radiación de Hawking.</p>
+</article>
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(255, 159, 67, 0.25); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #FF9F43; letter-spacing: 0.1em">ESPECIAL + ESPECIAL</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Fusiones</h3>
+<p style="margin: 0; color: #B3ADDB">Púlsar binario, magnetar, hipernova con chorros gamma y la fusión de agujeros negros con su onda gravitacional.</p>
+</article>
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(124, 255, 158, 0.25); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #7CFF9E; letter-spacing: 0.1em">H → FE</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Nucleosíntesis</h3>
+<p style="margin: 0; color: #B3ADDB">Cada combinación de un movimiento forja un elemento más pesado. Al llegar al hierro nace una supernova.</p>
+</article>
+<article style="padding: 1.75rem; border-radius: 16px; background: #100E1F; border: 1px solid rgba(139, 124, 255, 0.3); display: flex; flex-direction: column; gap: 0.6rem">
+<p style="margin: 0; font-size: 0.8rem; color: #A99FFF; letter-spacing: 0.1em">ENERGÍA OSCURA</p>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: #EDEBFF">Modo Hipernova</h3>
+<p style="margin: 0; color: #B3ADDB">Llena la barra y gana puntos dobles durante 3 movimientos, con piezas especiales cayendo del cielo.</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- Sectores -->
+<section id="sectores" style="border-top: 1px solid rgba(255, 228, 92, 0.2)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; display: flex; flex-direction: column; gap: 2.5rem">
+<div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 40rem">
+<p style="margin: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: #FFE45C">El viaje</p>
+<h2 style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15">Del Sistema Solar al Big Bang</h2>
+<p style="margin: 0; color: #B3ADDB">60 niveles en 6 sectores. Cada nivel está dedicado a un objeto real del cosmos, con su dato en la Cosmopedia.</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem">
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(53, 240, 255, 0.35); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #35F0FF; letter-spacing: 0.1em">SECTOR 1 · NIVELES 1–10</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Sistema Solar</h3>
+<span style="color: #B3ADDB">De Mercurio a Neptuno</span></li>
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(255, 228, 92, 0.35); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #FFE45C; letter-spacing: 0.1em">SECTOR 2 · NIVELES 11–20</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Vecindario Estelar</h3>
+<span style="color: #B3ADDB">Las estrellas más cercanas</span></li>
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(255, 79, 216, 0.35); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #FF4FD8; letter-spacing: 0.1em">SECTOR 3 · NIVELES 21–30</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Nebulosas</h3>
+<span style="color: #B3ADDB">Cunas y tumbas de estrellas</span></li>
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(255, 159, 67, 0.35); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #FF9F43; letter-spacing: 0.1em">SECTOR 4 · NIVELES 31–40</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Centro Galáctico</h3>
+<span style="color: #B3ADDB">Rumbo a Sagitario A*</span></li>
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(139, 124, 255, 0.4); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #A99FFF; letter-spacing: 0.1em">SECTOR 5 · NIVELES 41–50</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Grupo Local</h3>
+<span style="color: #B3ADDB">Magallanes, Andrómeda y más allá</span></li>
+<li style="padding: 1.5rem 1.75rem; border-radius: 16px; background: #0B0A18; border: 1px solid rgba(124, 255, 158, 0.35); display: flex; flex-direction: column; gap: 0.4rem">
+<span style="font-size: 0.8rem; color: #7CFF9E; letter-spacing: 0.1em">SECTOR 6 · NIVELES 51–60</span>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.25rem">Red Cósmica</h3>
+<span style="color: #B3ADDB">Hasta la primera luz del universo</span></li>
+</ol>
+</div>
+</section>
+
+<!-- Extras -->
+<section style="border-top: 1px solid rgba(124, 255, 158, 0.2)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem">
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#35F0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"></path><path d="M4 19V5"></path><path d="M9 8h6"></path></svg>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.05rem">Cosmopedia</h3>
+<p style="margin: 0; color: #B3ADDB; font-size: 0.95rem">Desbloquea datos reales de planetas, estrellas, nebulosas y galaxias a medida que avanzas.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFE45C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="1.5"></circle><circle cx="12" cy="4" r="1.5"></circle><circle cx="18" cy="9" r="1.5"></circle><circle cx="9" cy="14" r="1.5"></circle><circle cx="16" cy="19" r="1.5"></circle><path d="M6.4 5.6L10.6 4.4M13.3 4.8L16.8 8.1M17 10.3L10.3 13M10.1 15.1L14.8 18"></path></svg>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.05rem">Constelaciones</h3>
+<p style="margin: 0; color: #B3ADDB; font-size: 0.95rem">Orión, Tauro, Lira, Casiopea, Cruz del Sur, Sagitario, Andrómeda y Boyero.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF4FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.05rem">Música synthwave original</h3>
+<p style="margin: 0; color: #B3ADDB; font-size: 0.95rem">Una pista por sector y efectos sintetizados desde cero. La fusión de agujeros negros suena como la señal de LIGO.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.5rem">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7CFF9E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 6h3a3 3 0 0 1-3 4M7 6H4a3 3 0 0 0 3 4"></path></svg>
+<h3 style="margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.05rem">Logros y ranking</h3>
+<p style="margin: 0; color: #B3ADDB; font-size: 0.95rem">Regalo diario, logros y una clasificación para comparar tus puntos con otros jugadores.</p>
+</div>
+</div>
+</section>
+
+<!-- Descarga -->
+<section id="descargar" style="border-top: 1px solid rgba(53, 240, 255, 0.2)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem">
+<div style="display: flex; align-items: center; gap: 1.5rem; flex: 1 1 420px; min-width: 0">
+<img src="images/hypernova/icon.png" alt="Ícono de HyperNova" style="width: 96px; height: 96px; border-radius: 22px; flex: none; display: block">
+<div style="display: flex; flex-direction: column; gap: 0.4rem">
+<h2 style="margin: 0; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.15; text-shadow: 0 0 10px rgba(53, 240, 255, 0.45), 0 0 24px rgba(53, 240, 255, 0.45)">El universo te espera.</h2>
+<p style="margin: 0; color: #B3ADDB">Muy pronto en Android. Sin necesidad de crear cuenta para jugar.</p>
+</div>
+</div>
+<a href="#descargar" aria-disabled="true" style="display: inline-flex; align-items: center; gap: 0.6rem; min-height: 56px; padding: 0 1.75rem; border-radius: 10px; background: #FF4FD8; color: #07060F; text-decoration: none; font-weight: 600; font-size: 1.05rem; box-shadow: 0 0 18px rgba(255, 79, 216, 0.45)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l14 9-14 9z"></path></svg>
+Próximamente en Google Play</a>
+</div>
+</section>
+
+<!-- Pie -->
+<footer style="border-top: 1px solid rgba(237, 235, 255, 0.12)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.85rem; color: #B3ADDB">
+<span>© 2026 HyperNova · <a href="index.html">genaropadron.com</a></span>
+<div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem">
+<a href="hypernova-privacidad.html" style="padding: 0.75rem 0">Política de privacidad</a>
+<a href="hypernova-eliminar-cuenta.html" style="padding: 0.75rem 0">Eliminar cuenta</a>
+<a href="mailto:yankeevictor73@gmail.com?subject=HyperNova" style="padding: 0.75rem 0">Contacto</a>
+</div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>

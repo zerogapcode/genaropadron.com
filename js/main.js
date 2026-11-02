@@ -467,6 +467,7 @@
       proj_postventa: { en: "Your dealership's after-sales service, in one app.", es: "La postventa de tu concesionario, en una app.", pt: "O pós-venda da sua concessionária, em um app." },
       proj_condo: { en: "Condominium management for residents, gatehouse and administration.", es: "Administración de condominios para residentes, garita y administración.", pt: "Gestão de condomínios para moradores, portaria e administração." },
       proj_hyperjump: { en: "Endless vertical jumper across four dimensions.", es: "Juego de saltos infinito a través de cuatro dimensiones.", pt: "Jogo de saltos infinito através de quatro dimensões." },
+      proj_hypernova: { en: "Cosmic match-3: combine celestial bodies and unleash supernovas.", es: "Combina 3 cósmico: une cuerpos celestes y desata supernovas.", pt: "Combine 3 cósmico: una corpos celestes e libere supernovas." },
       services_title: { en: "Services", es: "Servicios", pt: "Serviços" },
       services_lead: { en: "Custom development, technical consulting, and rapid prototyping. I turn ideas into functional products.", es: "Desarrollo a medida, consultoría técnica y prototipado rápido. Transformo ideas en productos funcionales.", pt: "Desenvolvimento sob medida, consultoria técnica e prototipagem rápida. Transformo ideias em produtos funcionais." },
       service_ios_title: { en: "Multiplatform Development", es: "Desarrollo Multiplataforma", pt: "Desenvolvimento Multiplataforma" },
