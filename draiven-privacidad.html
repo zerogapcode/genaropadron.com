@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Política de Privacidad — DraiVen</title>
+<meta name="description" content="Qué datos usa DraiVen, para qué, con quién se comparten y cómo eliminar tu cuenta." />
+<meta name="theme-color" content="#060d1b" />
+<link rel="canonical" href="https://genaropadron.com/draiven-privacidad.html" />
+<link rel="icon" href="images/app_icon.png" type="image/png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://genaropadron.com/draiven-privacidad.html" />
+<meta property="og:title" content="Política de Privacidad — DraiVen" />
+<meta property="og:description" content="Qué datos usa DraiVen, para qué, con quién se comparten y cómo eliminar tu cuenta." />
+<meta property="og:image" content="https://genaropadron.com/images/feature_graphic.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --yellow:#FFD700; --yellow-soft:rgba(255,215,0,.12); --yellow-line:rgba(255,215,0,.22);
+    --bg:#060d1b; --surface:#0c1a30; --card:#101d35; --line:rgba(255,255,255,.08);
+    --ink:#ffffff; --text:#c8d6e5; --muted:#8a97a6;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ -webkit-font-smoothing:antialiased; }
+  body{ font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.7; }
+  a{ color:var(--yellow); }
+  a:hover{ color:#fff; }
+  .wrap{ max-width:820px; margin:0 auto; padding:0 20px; }
+
+  header{ padding:22px 0; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); }
+  .brand img{ width:36px; height:36px; object-fit:contain; }
+  .brand span{ font-weight:900; font-size:22px; letter-spacing:-.5px; }
+  .brand span b{ color:var(--yellow); font-weight:900; }
+  .tools{ display:flex; align-items:center; gap:14px; }
+  .back{ font-size:15px; font-weight:600; text-decoration:none; color:var(--text); }
+  .back:hover{ color:var(--yellow); }
+  .lang{ display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+  .lang button{ font:600 13px var(--font); color:var(--muted); background:none; border:0; padding:6px 12px; cursor:pointer; }
+  .lang button[aria-pressed="true"]{ background:var(--yellow); color:#0a1628; }
+
+  .hero{ padding:28px 0 8px; }
+  .chip{ display:inline-block; padding:6px 14px; border-radius:999px; background:var(--yellow-soft); color:var(--yellow); font-size:13px; font-weight:700; }
+  h1{ color:var(--ink); margin:14px 0 10px; font-weight:800; font-size:clamp(28px,5vw,42px); line-height:1.12; letter-spacing:-.02em; }
+  .lead{ font-size:17px; color:var(--text); }
+  .updated{ margin-top:10px; font-size:14px; color:var(--muted); }
+
+  nav.toc{ margin:28px 0 8px; padding:18px 20px; border-radius:18px; background:var(--surface); border:1px solid var(--line); }
+  nav.toc p{ font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  nav.toc ol{ list-style:none; columns:2 240px; column-gap:24px; }
+  nav.toc li{ font-size:14px; margin-bottom:4px; break-inside:avoid; }
+  nav.toc a{ color:var(--text); text-decoration:none; }
+  nav.toc a:hover{ color:var(--yellow); }
+
+  section{ padding:30px 0 0; scroll-margin-top:16px; }
+  h2{ color:var(--ink); font-weight:700; font-size:clamp(19px,3vw,23px); line-height:1.3; margin-bottom:12px; display:flex; gap:10px; align-items:baseline; }
+  h2::before{ content:""; flex:0 0 5px; height:18px; border-radius:3px; background:var(--yellow); transform:translateY(2px); }
+  section p{ font-size:16px; margin-bottom:12px; }
+  section ul{ margin:0 0 14px 4px; list-style:none; }
+  section li{ font-size:16px; margin-bottom:6px; padding-left:20px; position:relative; }
+  section li::before{ content:""; position:absolute; left:2px; top:.72em; width:6px; height:6px; border-radius:50%; background:var(--yellow); }
+  strong{ color:var(--ink); font-weight:600; }
+
+  .card{ padding:20px 22px; border-radius:18px; background:var(--card); border:1px solid var(--yellow-line); margin-top:8px; }
+  .card p:last-child{ margin-bottom:0; }
+
+  footer{ margin-top:48px; padding:24px 0 40px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:14px; color:var(--muted); }
+  footer nav{ display:flex; gap:20px; flex-wrap:wrap; }
+  footer nav a{ color:var(--text); text-decoration:none; font-weight:600; }
+  footer nav a:hover{ color:var(--yellow); }
+  [hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="draiven.html">
+      <img src="images/log_o.png" alt="" width="36" height="36" />
+      <span>Drai<b>Ven</b></span>
+    </a>
+    <div class="tools">
+      <a class="back" data-lang="es" href="draiven.html">Volver a DraiVen</a><a class="back" data-lang="pt" hidden href="draiven.html">Voltar para DraiVen</a>
+      <div class="lang" role="group" aria-label="Idioma / Idioma">
+        <button type="button" data-set="es" aria-pressed="true">ES</button>
+        <button type="button" data-set="pt" aria-pressed="false">PT</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <div data-lang="es">
+    <div class="hero">
+      <span class="chip">Legal</span>
+      <h1>Política de Privacidad</h1>
+      <p class="lead">Qué datos usa DraiVen, para qué, con quién se comparten y cómo eliminarlos.</p>
+      <p class="updated">Última actualización: 16 de noviembre de 2026</p>
+    </div>
+    <nav class="toc" aria-label="Contenido">
+      <p>Contenido</p>
+      <ol>
+          <li><a href="#es-p1">Quién es responsable</a></li>
+          <li><a href="#es-p2">Qué datos recopila la app</a></li>
+          <li><a href="#es-p3">Para qué los uso</a></li>
+          <li><a href="#es-p4">Con quién se comparten</a></li>
+          <li><a href="#es-p5">Cuánto tiempo se conservan</a></li>
+          <li><a href="#es-p6">Seguridad</a></li>
+          <li><a href="#eliminar-cuenta">Eliminar tu cuenta</a></li>
+          <li><a href="#es-p7">Tus derechos</a></li>
+          <li><a href="#es-p8">Menores de edad</a></li>
+          <li><a href="#es-p9">Cambios en esta política</a></li>
+      </ol>
+    </nav>
+    <section id="es-p1">
+        <h2>Quién es responsable</h2>
+        <p>DraiVen es una app desarrollada y operada por GenaroPadron. Para cualquier asunto sobre tus datos puedes escribirme a <a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a>.</p>
+    </section>
+    <section id="es-p2">
+        <h2>Qué datos recopila la app</h2>
+        <ul><li><strong>Cuenta:</strong> nombre, correo electrónico, número de teléfono (verificado por SMS) y foto de perfil si decides subirla. Si inicias sesión con Google, recibo el nombre y el correo de esa cuenta.</li><li><strong>Datos del conductor:</strong> modelo de la moto, placa, calificaciones, número de viajes y ganancias registradas en la app.</li><li><strong>Ubicación precisa:</strong> para mostrar conductores cercanos, calcular la ruta y la tarifa, y seguir el viaje en el mapa. Durante un viaje activo la app puede seguir usando la ubicación con la pantalla apagada; verás una notificación fija mientras eso ocurre.</li><li><strong>Viajes:</strong> origen, destino, ruta, tarifa, fecha, estado y calificación de cada viaje.</li><li><strong>Mensajes y notas de voz:</strong> lo que envías por el chat del viaje o por el chat de soporte, incluidas las notas de voz grabadas con el micrófono.</li><li><strong>Datos técnicos:</strong> identificador para notificaciones push, idioma y ajustes de la app, y datos básicos del dispositivo necesarios para que el servicio funcione.</li></ul><p>Los comandos de voz se reconocen en el propio teléfono: el audio de esos comandos no se envía a mis servidores.</p>
+    </section>
+    <section id="es-p3">
+        <h2>Para qué los uso</h2>
+        <ul><li>Crear y mantener tu cuenta y verificar tu número.</li><li>Conectar pasajeros con conductores cercanos y mostrar el viaje en tiempo real.</li><li>Mostrar al pasajero el nombre, foto, calificación, moto y placa del conductor, y al conductor el nombre y punto de recogida del pasajero.</li><li>Enviar notificaciones sobre solicitudes, viajes y mensajes.</li><li>Atender soporte, investigar denuncias y prevenir fraudes o usos prohibidos.</li></ul><p>No vendo tus datos ni los uso para publicidad.</p>
+    </section>
+    <section id="es-p4">
+        <h2>Con quién se comparten</h2>
+        <ul><li><strong>El otro usuario del viaje</strong>, solo lo necesario para realizarlo.</li><li><strong>Google Firebase</strong> (autenticación, base de datos, almacenamiento de archivos, notificaciones y funciones en la nube), donde se guardan los datos de la app.</li><li><strong>OpenStreetMap y OSRM</strong> para mostrar el mapa, buscar direcciones y calcular rutas. Reciben las coordenadas o el texto de búsqueda, no tu nombre ni tu cuenta.</li><li><strong>Autoridades</strong>, únicamente cuando la ley lo exija.</li></ul>
+    </section>
+    <section id="es-p5">
+        <h2>Cuánto tiempo se conservan</h2>
+        <p>Los datos se conservan mientras tu cuenta esté activa. Cuando pides eliminarla, borro tu cuenta, tu perfil, tus fotos y tus mensajes. Puedo conservar un registro mínimo de viajes durante el tiempo que exija la ley o que sea necesario para resolver una denuncia abierta.</p>
+    </section>
+    <section id="es-p6">
+        <h2>Seguridad</h2>
+        <p>Las comunicaciones viajan cifradas y el acceso a los datos está restringido por reglas de seguridad. Ningún sistema es infalible, así que no puedo garantizar una protección absoluta.</p>
+    </section>
+    <section id="eliminar-cuenta">
+      <div class="card">
+        <h2>Eliminar tu cuenta</h2>
+        <p>Escribe a <a href="mailto:gapcode@protonmail.com?subject=Eliminar%20mi%20cuenta%20de%20DraiVen">gapcode@protonmail.com</a> con el asunto <strong>“Eliminar mi cuenta de DraiVen”</strong> desde el correo de tu cuenta, o indicando el número de teléfono con el que te registraste. Elimino la cuenta y sus datos en un plazo máximo de 30 días y te confirmo por correo cuando esté hecho.</p>
+      </div>
+    </section>
+    <section id="es-p7">
+        <h2>Tus derechos</h2>
+        <p>Puedes pedir una copia de tus datos, corregirlos o eliminarlos escribiendo a <a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a>. Respondo en un plazo máximo de 30 días.</p>
+    </section>
+    <section id="es-p8">
+        <h2>Menores de edad</h2>
+        <p>DraiVen es solo para mayores de 18 años. Si detecto una cuenta de un menor, la elimino.</p>
+    </section>
+    <section id="es-p9">
+        <h2>Cambios en esta política</h2>
+        <p>Si cambio esta política, actualizaré la fecha de arriba y avisaré dentro de la app cuando el cambio sea importante.</p>
+    </section>
+  </div>
+  <div data-lang="pt" hidden>
+    <div class="hero">
+      <span class="chip">Legal</span>
+      <h1>Política de Privacidade</h1>
+      <p class="lead">Quais dados o DraiVen usa, para quê, com quem são compartilhados e como excluí-los.</p>
+      <p class="updated">Última atualização: 16 de novembro de 2026</p>
+    </div>
+    <nav class="toc" aria-label="Conteúdo">
+      <p>Conteúdo</p>
+      <ol>
+          <li><a href="#pt-p1">Quem é o responsável</a></li>
+          <li><a href="#pt-p2">Quais dados o app coleta</a></li>
+          <li><a href="#pt-p3">Para que eu uso os dados</a></li>
+          <li><a href="#pt-p4">Com quem são compartilhados</a></li>
+          <li><a href="#pt-p5">Por quanto tempo são guardados</a></li>
+          <li><a href="#pt-p6">Segurança</a></li>
+          <li><a href="#excluir-conta">Excluir sua conta</a></li>
+          <li><a href="#pt-p7">Seus direitos</a></li>
+          <li><a href="#pt-p8">Menores de idade</a></li>
+          <li><a href="#pt-p9">Alterações nesta política</a></li>
+      </ol>
+    </nav>
+    <section id="pt-p1">
+        <h2>Quem é o responsável</h2>
+        <p>DraiVen é um app desenvolvido e operado por GenaroPadron. Para qualquer assunto sobre seus dados, escreva para <a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a>.</p>
+    </section>
+    <section id="pt-p2">
+        <h2>Quais dados o app coleta</h2>
+        <ul><li><strong>Conta:</strong> nome, e-mail, número de telefone (verificado por SMS) e foto de perfil, se você enviar uma. Se entrar com o Google, recebo o nome e o e-mail dessa conta.</li><li><strong>Dados do motorista:</strong> modelo da moto, placa, avaliações, número de viagens e ganhos registrados no app.</li><li><strong>Localização precisa:</strong> para mostrar motoristas próximos, calcular rota e tarifa e acompanhar a viagem no mapa. Durante uma viagem ativa o app pode continuar usando a localização com a tela desligada; uma notificação fixa fica visível enquanto isso acontece.</li><li><strong>Viagens:</strong> origem, destino, rota, tarifa, data, status e avaliação de cada viagem.</li><li><strong>Mensagens e áudios:</strong> o que você envia pelo chat da viagem ou pelo chat de suporte, incluindo áudios gravados com o microfone.</li><li><strong>Dados técnicos:</strong> identificador para notificações push, idioma e configurações do app, e dados básicos do dispositivo necessários para o serviço funcionar.</li></ul><p>Os comandos de voz são reconhecidos no próprio celular: o áudio desses comandos não é enviado aos meus servidores.</p>
+    </section>
+    <section id="pt-p3">
+        <h2>Para que eu uso os dados</h2>
+        <ul><li>Criar e manter sua conta e verificar seu número.</li><li>Conectar passageiros a motoristas próximos e mostrar a viagem em tempo real.</li><li>Mostrar ao passageiro o nome, foto, avaliação, moto e placa do motorista, e ao motorista o nome e o ponto de embarque do passageiro.</li><li>Enviar notificações sobre solicitações, viagens e mensagens.</li><li>Prestar suporte, investigar denúncias e prevenir fraudes ou usos proibidos.</li></ul><p>Não vendo seus dados nem os uso para publicidade.</p>
+    </section>
+    <section id="pt-p4">
+        <h2>Com quem são compartilhados</h2>
+        <ul><li><strong>O outro usuário da viagem</strong>, apenas o necessário para realizá-la.</li><li><strong>Google Firebase</strong> (autenticação, banco de dados, armazenamento de arquivos, notificações e funções na nuvem), onde os dados do app ficam guardados.</li><li><strong>OpenStreetMap e OSRM</strong> para exibir o mapa, buscar endereços e calcular rotas. Eles recebem as coordenadas ou o texto da busca, não seu nome nem sua conta.</li><li><strong>Autoridades</strong>, somente quando a lei exigir.</li></ul>
+    </section>
+    <section id="pt-p5">
+        <h2>Por quanto tempo são guardados</h2>
+        <p>Os dados são guardados enquanto sua conta estiver ativa. Quando você pede a exclusão, apago sua conta, seu perfil, suas fotos e suas mensagens. Posso manter um registro mínimo de viagens pelo tempo exigido por lei ou necessário para resolver uma denúncia em aberto.</p>
+    </section>
+    <section id="pt-p6">
+        <h2>Segurança</h2>
+        <p>As comunicações são criptografadas e o acesso aos dados é restrito por regras de segurança. Nenhum sistema é infalível, então não posso garantir proteção absoluta.</p>
+    </section>
+    <section id="excluir-conta">
+      <div class="card">
+        <h2>Excluir sua conta</h2>
+        <p>Escreva para <a href="mailto:gapcode@protonmail.com?subject=Excluir%20minha%20conta%20DraiVen">gapcode@protonmail.com</a> com o assunto <strong>“Excluir minha conta DraiVen”</strong> a partir do e-mail da sua conta, ou informando o número de telefone com o qual você se cadastrou. Excluo a conta e seus dados em até 30 dias e confirmo por e-mail quando estiver feito.</p>
+      </div>
+    </section>
+    <section id="pt-p7">
+        <h2>Seus direitos</h2>
+        <p>Você pode pedir uma cópia dos seus dados, corrigi-los ou excluí-los escrevendo para <a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a>. Respondo em até 30 dias.</p>
+    </section>
+    <section id="pt-p8">
+        <h2>Menores de idade</h2>
+        <p>DraiVen é apenas para maiores de 18 anos. Se eu identificar a conta de um menor, ela será excluída.</p>
+    </section>
+    <section id="pt-p9">
+        <h2>Alterações nesta política</h2>
+        <p>Se eu alterar esta política, atualizarei a data acima e avisarei dentro do app quando a mudança for importante.</p>
+    </section>
+  </div>
+  </main>
+
+  <footer>
+    <div data-lang="es">© 2026 DraiVen. Todos los derechos reservados.</div>
+    <div data-lang="pt" hidden>© 2026 DraiVen. Todos os direitos reservados.</div>
+    <nav data-lang="es"><a href="draiven.html">Inicio</a><a href="draiven-terminos.html">Términos</a><a href="draiven-privacidad.html">Privacidad</a><a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a></nav>
+    <nav data-lang="pt" hidden><a href="draiven.html">Início</a><a href="draiven-terminos.html">Termos</a><a href="draiven-privacidad.html">Privacidade</a><a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a></nav>
+  </footer>
+</div>
+
+<script>
+  (function(){
+    var titles = {"es": "Política de Privacidad — DraiVen", "pt": "Política de Privacidade — DraiVen"};
+    function get(){ try{ return localStorage.getItem('draiven_lang'); }catch(e){ return null; } }
+    function set(v){ try{ localStorage.setItem('draiven_lang', v); }catch(e){} }
+    function apply(lang){
+      if(lang !== 'pt') lang = 'es';
+      document.querySelectorAll('[data-lang]').forEach(function(el){ el.hidden = el.getAttribute('data-lang') !== lang; });
+      document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.set === lang ? 'true' : 'false'); });
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+    }
+    var q = new URLSearchParams(location.search).get('lang');
+    apply(q || get() || 'es');
+    // El ancla de borrar cuenta tiene un id por idioma; salta al visible.
+    var alias = {'eliminar-cuenta':'excluir-conta','excluir-conta':'eliminar-cuenta'};
+    var h = location.hash.slice(1), el = h && document.getElementById(h);
+    if (el && el.closest('[hidden]') && alias[h]) {
+      var other = document.getElementById(alias[h]);
+      if (other) other.scrollIntoView();
+    }
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.addEventListener('click', function(){ set(b.dataset.set); apply(b.dataset.set); });
+    });
+  })();
+</script>
+
+</body>
+</html>
