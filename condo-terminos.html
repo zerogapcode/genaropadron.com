@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Términos y Condiciones — Condo</title>
+<meta name="description" content="Términos y Condiciones de uso de Condo, la plataforma de administración de condominios para residentes, garita y administración." />
+<link rel="canonical" href="https://genaropadron.com/condo-terminos.html" />
+<link rel="icon" href="images/condo/icono.png" />
+<link rel="apple-touch-icon" href="images/condo/icono.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://genaropadron.com/condo-terminos.html" />
+<meta property="og:title" content="Términos y Condiciones — Condo" />
+<meta property="og:description" content="Términos y Condiciones de uso de Condo, la plataforma de administración de condominios para residentes, garita y administración." />
+<meta property="og:image" content="https://genaropadron.com/images/condo/CONDOFT.PNG" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..800&family=Instrument+Sans:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Condo",
+  "operatingSystem": "Android",
+  "applicationCategory": "BusinessApplication",
+  "url": "https://genaropadron.com/condo.html",
+  "image": "https://genaropadron.com/images/condo/icono.png",
+  "description": "Administración de condominios: estado de cuenta, pases QR para visitas, escáner de garita, comunicados oficiales y cobranza automática.",
+  "author": { "@type": "Organization", "name": "GenaroPadron", "url": "https://genaropadron.com/" }
+}
+</script>
+
+<style>
+  :root{
+    --page:#F4F7FC; --sky:#E4EDFB; --surface:#FFFFFF; --line:#DDE5F1;
+    --ink:#0A1830; --ink-2:#3C4A61; --ink-3:#687690;
+    --navy:#022E6F; --blue:#2F6FE4; --blue-soft:#DCE7FB; --brand-text:#022E6F;
+    --btn-bg:#022E6F; --btn-fg:#FFFFFF;
+    --shadow:0 30px 70px -20px rgba(2,46,111,.28);
+    --sky-bld:2,46,111;
+    /* tema real de la app (core/ui Theme.kt) */
+    --app-primary:#0F766E; --app-pc:#B2DFDB; --app-onpc:#002019; --app-bg:#FAFAFA;
+    --app-sv:#EDEFEE; --app-ink:#1B1C1C; --app-ink-2:#3F4947;
+    --overdue:#B3261E; --due:#B26B00; --ok:#1B7F5A;
+    --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --sans:"Instrument Sans","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --android:Roboto,"Helvetica Neue",system-ui,sans-serif;
+  }
+  [data-theme="dark"]{
+    --page:#07101F; --sky:#0C1830; --surface:#0F1C33; --line:#1F2E4A;
+    --ink:#E9EEF7; --ink-2:#B3BFD3; --ink-3:#8290A8;
+    --blue:#6E9BF5; --blue-soft:#172A4D; --brand-text:#A9C2F5;
+    --btn-bg:#E9EEF7; --btn-fg:#07101F;
+    --shadow:0 30px 70px -20px rgba(0,0,0,.6);
+    --sky-bld:120,160,235;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--page);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background-color .3s,color .3s}
+  h1,h2,h3{font-family:var(--display);font-stretch:118%;font-weight:750;letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
+  p{text-wrap:pretty}
+  a{color:var(--brand-text);text-decoration:none}
+  a:hover{color:var(--blue)}
+  img{display:block;max-width:100%}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .wrap{max-width:1200px;margin:0 auto;padding-inline:24px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+  .eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+
+  /* botones */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;background:var(--btn-bg);color:var(--btn-fg);font-weight:600;font-size:15.5px;transition:transform .2s,box-shadow .2s}
+  .btn:hover{color:var(--btn-fg);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(2,46,111,.55)}
+  .btn-sm{height:42px;padding:0 18px;font-size:14px}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 6px;font-weight:600;color:var(--ink)}
+  .btn-ghost svg{transition:transform .2s}
+  .btn-ghost:hover svg{transform:translateY(3px)}
+  .chip-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);background:var(--surface)}
+  .chip-btn:hover{color:var(--ink)}
+  .lang{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 10px 0 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer}
+  .lang:hover{color:var(--ink)}
+  .lang:focus-within{outline:2px solid var(--blue);outline-offset:2px}
+  .lang select{appearance:none;-webkit-appearance:none;background:none;border:0;font:inherit;font-weight:600;font-size:14px;letter-spacing:.04em;color:inherit;cursor:pointer;padding:0}
+  .lang select:focus{outline:0}
+  .lang option{color:#0A1830;background:#fff}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--page) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+  .brand img{width:48px;height:48px;border-radius:12px;background:#fff}
+  .brand span{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:18px;letter-spacing:.08em;color:var(--brand-text)}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-size:14.5px;color:var(--ink-2);font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--page) 0%,var(--sky) 100%)}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;padding-block:76px 210px}
+  .hero h1{font-size:clamp(40px,5.4vw,70px);margin:22px 0 22px}
+  .hero h1 em{font-style:normal;color:var(--blue)}
+  .lead{font-size:19px;color:var(--ink-2);max-width:540px}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:34px}
+  .hero-note{margin-top:26px;font-size:14px;color:var(--ink-3)}
+  .reveal{opacity:0;transform:translateY(18px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,0) * 110ms + 80ms)}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  .stage{position:relative;height:500px;perspective:1100px}
+  .tile{position:absolute;inset:40px 50px;border-radius:32px;background:#FFFFFF;box-shadow:var(--shadow);display:grid;place-items:center;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+  .tile img{width:74%;height:auto;transform:translateZ(40px)}
+  .tile::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(47,111,228,.14),transparent 55%);pointer-events:none}
+  .float{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(2,46,111,.35);font-size:14px;line-height:1.3;transition:transform .5s cubic-bezier(.2,.7,.2,1);white-space:nowrap}
+  .float b{display:block;font-weight:600;color:var(--ink)}
+  .float small{color:var(--ink-3);font-size:12.5px}
+  .float .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:none}
+  .f1{top:6px;left:-6px}.f2{bottom:74px;right:-18px}.f3{bottom:-4px;left:22px}
+  .skyline{position:absolute;left:0;right:0;bottom:0;height:260px;z-index:1;pointer-events:none}
+  .skyline svg{width:100%;height:100%;display:block}
+  .skyline .b1{fill:rgba(var(--sky-bld),.10)}
+  .skyline .b2{fill:rgba(var(--sky-bld),.18)}
+  .skyline .w{fill:rgba(var(--sky-bld),.14);transition:fill .5s}
+  .skyline .w.on{fill:#2F6FE4;transition:fill .15s}
+  [data-theme="dark"] .skyline .w.on{fill:#9CC0FF}
+
+  /* secciones */
+  section.sec{padding-block:110px}
+  .sec-head{max-width:720px;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(32px,4vw,50px);margin-top:16px}
+  .sec-head p{margin-top:18px;font-size:18px;color:var(--ink-2)}
+
+  /* roles */
+  .tabs{display:inline-flex;gap:6px;padding:6px;border-radius:999px;background:var(--surface);border:1px solid var(--line);margin-bottom:40px;flex-wrap:wrap}
+  .tab{height:44px;padding:0 20px;border-radius:999px;font-weight:600;font-size:15px;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s}
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{background:var(--navy);color:#fff}
+  [data-theme="dark"] .tab[aria-selected="true"]{background:var(--blue);color:#07101F}
+  .roles{display:grid;grid-template-columns:minmax(0,1fr) 300px minmax(0,1fr);gap:48px;align-items:center}
+  .bld{width:100%;max-width:440px;height:auto;display:block;margin:0 auto;overflow:visible}
+  .bld .wl{fill:#0D3F8C;transition:fill .45s;transition-delay:var(--d)}
+  .bld .wr{fill:#A9C3F1;transition:fill .45s;transition-delay:var(--d)}
+  .bld .z-lobby{fill:#A9C3F1;transition:fill .4s}
+  .bld .booth-win{fill:#A9C3F1;transition:fill .4s}
+  .bld .barrier{transform-box:view-box;transform-origin:381px 402px;transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+  .bld .z-signal path{opacity:0}
+  .bld .tag rect{fill:var(--surface);stroke:var(--line)}
+  .bld .tag text{font:600 13px var(--sans);fill:var(--ink)}
+  .bld .tag{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+  .bld[data-role="res"] .wl,.bld[data-role="res"] .wr{fill:#FFFFFF}
+  .bld[data-role="res"] .wr{fill:#2F6FE4}
+  .bld[data-role="res"] .tag-res,.bld[data-role="guard"] .tag-guard,.bld[data-role="admin"] .tag-admin{opacity:1;transform:none}
+  .bld[data-role="guard"] .booth-win{fill:#FFFFFF;filter:drop-shadow(0 0 6px #8FB4F7)}
+  .bld[data-role="guard"] .barrier{transform:rotate(-58deg)}
+  .bld[data-role="guard"] .z-lobby{fill:#2F6FE4}
+  .bld[data-role="admin"] .z-signal path{animation:sig 1.8s infinite}
+  .bld[data-role="admin"] .z-signal path:nth-child(2){animation-delay:.25s}
+  .bld[data-role="admin"] .z-signal path:nth-child(3){animation-delay:.5s}
+  .bld[data-role="admin"] .wl{animation:wave 1.8s infinite;animation-delay:var(--d)}
+  @keyframes sig{0%{opacity:0}30%{opacity:1}80%,100%{opacity:0}}
+  @keyframes wave{0%,100%{fill:#0D3F8C}40%{fill:#FFFFFF}}
+
+  .role-copy h3{font-size:30px;margin-bottom:14px}
+  .role-copy .pain{font-size:15px;color:var(--ink-3);margin-bottom:22px}
+  .role-copy .pain s{text-decoration-color:var(--overdue);text-decoration-thickness:2px}
+  .role-copy ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .role-copy li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;color:var(--ink-2);font-size:15.5px}
+  .role-copy li svg{margin-top:2px;color:var(--blue)}
+  .role-copy li b{color:var(--ink);font-weight:600}
+  .fade{animation:fade .45s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* telefono (tema claro de la app) */
+  .phone{width:300px;height:620px;border-radius:44px;background:#0B1220;padding:10px;box-shadow:var(--shadow);margin:0 auto;position:relative}
+  .screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:var(--app-bg);font-family:var(--android);color:var(--app-ink);display:flex;flex-direction:column;position:relative}
+  .appbar{height:64px;padding:26px 16px 0;font-size:22px;line-height:28px;flex:none}
+  .app-body{flex:1;overflow:hidden;padding:8px 16px;display:flex;flex-direction:column;gap:12px}
+  .bottom-nav{height:80px;flex:none;background:#F0F2F1;display:flex;justify-content:space-around;align-items:center;padding-top:4px}
+  .bn{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--app-ink-2)}
+  .bn i{width:56px;height:32px;border-radius:16px;display:grid;place-items:center}
+  .bn.on i{background:var(--app-pc)}
+  .bn.on{color:var(--app-ink)}
+  .card{background:#fff;border-radius:12px;padding:16px}
+  .card.pc{background:var(--app-pc);color:var(--app-onpc)}
+  .amount{font-size:28px;line-height:36px;font-weight:500;margin-top:4px;font-variant-numeric:tabular-nums}
+  .status{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.04em}
+  .lrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:14px;color:var(--app-ink-2)}
+  .lrow b{font-weight:500;color:var(--app-ink);font-variant-numeric:tabular-nums}
+  .m3btn{height:40px;border-radius:20px;background:var(--app-primary);color:#fff;font-family:var(--android);font-size:14px;font-weight:500;letter-spacing:.01em;width:100%}
+  .m3btn.tonal{background:var(--app-sv);color:var(--app-ink)}
+  .sec-title{font-size:14px;font-weight:500;color:var(--app-primary);margin-top:4px}
+  .snack{position:absolute;left:12px;right:12px;bottom:92px;background:#313033;color:#F4EFF4;font-size:14px;padding:14px 16px;border-radius:4px;transform:translateY(20px);opacity:0;transition:.3s;pointer-events:none}
+  .snack.show{transform:none;opacity:1}
+  .viewfinder{flex:1;margin:-8px -16px;background:#101413;position:relative;display:grid;place-items:center;overflow:hidden}
+  .vf-frame{width:190px;height:190px;position:relative}
+  .vf-frame i{position:absolute;width:34px;height:34px;border:4px solid #fff}
+  .vf-frame i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0;border-radius:10px 0 0 0}
+  .vf-frame i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0;border-radius:0 10px 0 0}
+  .vf-frame i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0;border-radius:0 0 0 10px}
+  .vf-frame i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0;border-radius:0 0 10px 0}
+  .scanline{position:absolute;left:8px;right:8px;height:2px;background:#5EEAD4;box-shadow:0 0 12px #5EEAD4;animation:scan 2.2s ease-in-out infinite}
+  @keyframes scan{0%,100%{top:10px}50%{top:178px}}
+  .vf-hint{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#E3E3E3;font-size:14px}
+  .result{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;color:#fff;white-space:pre-line;font-size:17px;line-height:1.45}
+  .result strong{font-size:40px;letter-spacing:.04em;font-weight:500;margin-bottom:12px}
+  .ann h4{font-size:16px;font-weight:500;margin:8px 0 6px}
+  .ann p{font-size:14px;color:var(--app-ink-2);line-height:20px}
+  .ann .meta{font-size:12px;color:var(--app-ink-2)}
+  .role-ctrl{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+  .pill{height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+  .pill:hover{border-color:var(--blue)}
+  .pill[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--brand-text)}
+
+  /* pases */
+  .band{background:var(--navy);color:#E6EEFB}
+  .band .sec-head h2{color:#fff}
+  .band .sec-head p{color:#B9CAE8}
+  .band .eyebrow{color:#8FB4F7}
+  .pass-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .panel{background:#0B3A80;border:1px solid #1D4E97;border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:18px}
+  .panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .panel-top span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8FB4F7;font-weight:600}
+  .field label{display:block;font-size:13px;color:#B9CAE8;margin-bottom:6px}
+  .field input{width:100%;height:50px;border-radius:14px;border:1px solid #2A5CA6;background:#062F6B;color:#fff;padding:0 16px;font:inherit;font-size:16px}
+  .field input:focus{outline:2px solid #8FB4F7;outline-offset:1px}
+  .seg{display:flex;gap:8px}
+  .seg button{height:44px;padding:0 18px;border-radius:12px;border:1px solid #2A5CA6;color:#DCE7FB;font-weight:600;font-size:14.5px}
+  .seg button[aria-pressed="true"]{background:#DCE7FB;color:#022E6F;border-color:#DCE7FB}
+  .hint{font-size:13.5px;color:#9FB6DC}
+  .btn-light{background:#fff;color:#022E6F}
+  .btn-light:hover{color:#022E6F}
+  .btn-line{background:transparent;border:1px solid #4E7BC0;color:#fff}
+  .btn-line:hover{color:#fff}
+  .btn[disabled]{opacity:.45;pointer-events:none}
+  .ticket{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;align-items:center;background:#fff;color:#0A1830;border-radius:20px;padding:18px}
+  .ticket svg{width:132px;height:132px;display:block}
+  .ticket h4{font-family:var(--display);font-stretch:112%;font-size:19px;letter-spacing:-.01em}
+  .ticket p{font-size:13.5px;color:#3C4A61;margin-top:6px}
+  .ticket .state{margin-top:10px}
+  .empty{border:1.5px dashed #2A5CA6;border-radius:20px;height:170px;display:grid;place-items:center;color:#9FB6DC;font-size:14.5px;text-align:center;padding:20px}
+  .gate{border-radius:20px;min-height:240px;background:#101413;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;white-space:pre-line;color:#fff;transition:background .35s;position:relative;overflow:hidden}
+  .gate strong{font-family:var(--android);font-weight:500;font-size:42px;letter-spacing:.04em;margin-bottom:8px}
+  .gate .scanline{animation-duration:.9s}
+  .switch{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:#DCE7FB;font-weight:500}
+  .switch i{width:46px;height:28px;border-radius:14px;background:#2A5CA6;position:relative;transition:background .25s}
+  .switch i::after{content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .25s}
+  .switch[aria-checked="true"] i{background:#5EEAD4}
+  .switch[aria-checked="true"] i::after{transform:translateX(18px)}
+  .fine{font-size:13.5px;color:#9FB6DC;margin-top:26px;max-width:760px}
+
+  /* cuentas */
+  .calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+  .ctrl{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:22px}
+  .ctrl label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+  .budget{font-family:var(--display);font-stretch:112%;font-size:clamp(30px,3.4vw,42px);font-weight:750;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink)}
+  input[type=range]{width:100%;accent-color:var(--blue);height:28px}
+  .cur{display:flex;flex-wrap:wrap;gap:8px}
+  .verdict{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .verdict div{border-radius:18px;padding:16px;border:1px solid var(--line)}
+  .verdict small{display:block;font-size:13px;color:var(--ink-3);margin-bottom:4px}
+  .verdict b{font-family:var(--display);font-stretch:112%;font-size:24px;font-variant-numeric:tabular-nums}
+  .v-bad b{color:var(--overdue)} .v-good b{color:var(--ok)}
+  [data-theme="dark"] .v-bad b{color:#F2B8B5} [data-theme="dark"] .v-good b{color:#7FD8B0}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:24px;background:var(--surface)}
+  table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;min-width:460px}
+  th,td{padding:13px 18px;text-align:right;border-bottom:1px solid var(--line)}
+  th{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  th:first-child,td:first-child{text-align:left}
+  tfoot td{font-weight:600;border-bottom:0}
+  .plus{display:inline-block;margin-left:8px;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--blue-soft);color:var(--brand-text)}
+
+  /* principios */
+  .principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px;border-top:1px solid var(--line);padding-top:40px}
+  .principles h3{font-size:20px;font-stretch:112%;margin:18px 0 10px;letter-spacing:-.01em}
+  .principles p{font-size:15px;color:var(--ink-2)}
+  .principles .ic{width:48px;height:48px;border-radius:14px;background:var(--blue-soft);color:var(--brand-text);display:grid;place-items:center}
+
+  /* cta final */
+  .cta{position:relative;overflow:hidden;border-radius:36px;background:var(--navy);color:#fff;padding:72px 56px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:30px;align-items:center}
+  .cta h2{font-size:clamp(32px,4vw,52px);color:#fff}
+  .cta p{color:#B9CAE8;font-size:18px;margin-top:16px;max-width:560px}
+  .cta-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start;position:relative;z-index:1}
+  .cta-actions a.mail{color:#DCE7FB;font-weight:500}
+  .cta-actions a.mail:hover{color:#fff}
+  .cta-mark{position:absolute;right:-60px;bottom:-90px;width:340px;opacity:.10;pointer-events:none}
+
+  footer{padding-block:64px 40px;margin-top:110px;border-top:1px solid var(--line)}
+  .foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .foot p{color:var(--ink-3);font-size:14.5px;max-width:340px;margin-top:14px}
+  .foot-col{display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+  .foot-col b{font-size:12px;letter-spacing:.12em;color:var(--ink-3)}
+  .foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-3)}
+  .foot-bot code{font-size:12.5px}
+
+  @media (max-width:1040px){
+    .roles{grid-template-columns:minmax(0,1fr) 300px}
+    .roles .bld-col{grid-column:1/-1;order:3}
+    .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:860px){
+    .nav-links{display:none}
+    .hero-grid{grid-template-columns:minmax(0,1fr);padding-block:48px 170px}
+    .stage{height:400px;max-width:460px;width:100%;margin:0 auto}
+    .tile{inset:40px 30px}
+    .roles{grid-template-columns:minmax(0,1fr)}
+    .roles .bld-col{order:0}
+    .pass-grid,.calc,.cta{grid-template-columns:minmax(0,1fr)}
+    .cta{padding:48px 28px}
+    section.sec{padding-block:80px}
+  }
+  @media (max-width:520px){
+    .principles{grid-template-columns:minmax(0,1fr)}
+    .float{font-size:13px}
+    .f2{right:-4px}.f1{left:0}
+    .ticket{grid-template-columns:minmax(0,1fr);justify-items:start}
+    .btn-sm{display:none}
+    .panel{padding:22px}
+    .verdict{grid-template-columns:minmax(0,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    .reveal{opacity:1;transform:none}
+  }
+  [data-lang-block][hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="condo.html#top" aria-label="Condo, inicio" data-i18n-attr="aria-label:nav.home">
+      <img src="images/condo/icono.png" alt="" width="48" height="48" />
+      <span>CONDO</span>
+    </a>
+    <nav class="nav-links" aria-label="Secciones" data-i18n-attr="aria-label:nav.sections">
+      <a href="condo.html#como-funciona" data-i18n="nav.how">Cómo funciona</a>
+      <a href="condo.html#pases" data-i18n="nav.passes">Pases QR</a>
+      <a href="condo.html#cuentas" data-i18n="nav.accounts">Cuentas claras</a>
+      <a href="condo.html#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="nav-right">
+      <button class="chip-btn" id="themeBtn" aria-label="Cambiar tema" data-i18n-attr="aria-label:nav.theme">
+        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <label class="lang" aria-label="Idioma" data-i18n-attr="aria-label:nav.language">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <select id="langSel">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="condo.html#contacto" data-i18n="cta.demo">Solicitar una demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="sec wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="legal.eyebrow">Legal</span>
+      <h2 data-i18n="legal.title">Términos y Condiciones</h2>
+      <p data-i18n="legal.updated">Última actualización: 16 de noviembre de 2026</p>
+    </div>
+    
+    <div data-lang-block="es" style="max-width: 800px; color: var(--ink-2); font-size: 16px; display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">1. Qué es Condo y a quién se aplican estos términos</h3>
+        <p>Condo es una plataforma de administración de condominios (app Android <code>com.condowner.app</code> y panel web) desarrollada por GenaroPadron. La usan la administración o junta del condominio, los residentes y el personal de garita. Al crear una cuenta o usar Condo aceptas estos términos. Si no estás de acuerdo, no uses la plataforma.</p>
+        <p>Si eres una administradora o junta que contrató Condo, también se aplican las condiciones comerciales que acordaste con nosotros; si algo de ese acuerdo contradice estos términos, prevalece el acuerdo.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">2. Cuentas y roles</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Entras a un condominio con el código de invitación que te da su administración, o creando un condominio nuevo si eres administrador.</li><li>Los datos de tu cuenta deben ser reales. Eres responsable de mantener segura tu cuenta y de lo que se haga con ella.</li><li>La administración asigna los roles (residente, garita, junta, administración) y es responsable de retirar el acceso a quien deje de vivir o trabajar en el condominio.</li><li>El titular de una cuenta debe ser mayor de edad o contar con el permiso de su madre, padre o tutor.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">3. Responsabilidades de la administración</h3>
+        <p>La administración o junta de cada condominio es responsable de:</p>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Los datos que carga: unidades, coeficientes o alícuotas, cuotas, gastos, fondo de reserva, recargos por mora y comunicados.</li><li>Cumplir la ley de propiedad horizontal, el reglamento del condominio y las leyes de protección de datos que le apliquen. Respecto a los datos de sus residentes, la administración decide para qué se usan y Condo los trata por su cuenta para prestar el servicio.</li><li>Confirmar o rechazar con criterio los pagos por transferencia y en efectivo que registran los residentes.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">4. Cuotas y pagos del condominio</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li><b>La deuda es con el condominio, no con Condo.</b> Los montos, fechas de vencimiento, recargos y descuentos los define la administración. Las dudas o reclamos sobre lo que debes se resuelven con ella.</li><li>Los pagos con tarjeta se procesan a través de pasarelas de pago externas (Stripe o Mercado Pago, según lo que haya activado tu condominio) bajo sus propias condiciones. Condo no ve ni guarda los datos completos de tu tarjeta.</li><li>Los pagos por transferencia o en efectivo se reflejan cuando la administración los confirma. Al confirmarse cualquier pago, Condo genera un recibo.</li><li>Las devoluciones de cuotas del condominio las decide y gestiona la administración.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">5. Planes de la plataforma</h3>
+        <p>Condo se contrata por condominio o por administradora, con el plan y el precio que se acuerden antes de cobrar nada. Los residentes y el personal de garita no pagan a Condo por usar la app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">6. Pases QR, garita y botón de pánico</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Los pases QR son personales. Eres responsable de las visitas que autorizas y de no compartir pases con quien no corresponda.</li><li>La decisión final de dejar entrar a alguien la toma el personal de garita según las normas del condominio.</li><li><b>El botón de pánico avisa a la garita y a la administración, pero no sustituye a los servicios de emergencia.</b> En una emergencia llama siempre al número de emergencias de tu país.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">7. Comunicados y votaciones</h3>
+        <p>Los comunicados oficiales los publica la administración, que es responsable de su contenido. Condo registra las votaciones y sus resultados, pero su validez legal depende del reglamento del condominio y de la ley de tu país.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">8. Usos no permitidos</h3>
+        <p>No puedes usar Condo para actividades ilegales, para acosar o amenazar a otras personas, para publicar contenido ofensivo o que infrinja derechos de terceros, para suplantar a otra persona, para registrar pagos falsos ni para intentar acceder a datos de otros condominios o usuarios.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">9. Disponibilidad del servicio</h3>
+        <p>Trabajamos para que Condo funcione siempre y cada condominio quede aislado de los demás, pero no podemos garantizar que el servicio no tenga interrupciones o errores. Podemos mejorar la plataforma y cambiar funciones; si un cambio afecta de forma importante a lo que contrató una administradora, se lo avisaremos con antelación.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">10. Responsabilidad</h3>
+        <p>Ofrecemos Condo con un cuidado razonable. En la medida en que la ley lo permita, no respondemos por daños indirectos, por las decisiones de la administración o de la garita, por la relación entre residentes y condominio ni por fallos de servicios de terceros como las pasarelas de pago. Nada en estos términos limita los derechos que te dan las leyes de protección al consumidor de tu país, incluidas las del Espacio Económico Europeo y el Reino Unido, ni excluye la responsabilidad que la ley no permite excluir.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">11. Suspensión y baja</h3>
+        <p>Puedes eliminar tu cuenta desde la sección Ajustes de la app o pidiéndoselo a la administración de tu condominio, como se explica en la <a href="privacidad.html" style="color: var(--brand-text); font-weight: 500;">Política de Privacidad</a>. Los registros contables del condominio (cargos, pagos y recibos) pueden conservarse el tiempo que exija la ley. Podemos suspender cuentas o condominios que incumplan estos términos de forma grave o reiterada.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">12. Cambios en estos términos</h3>
+        <p>Si cambiamos estos términos, actualizaremos esta página y su fecha. Cuando el cambio sea importante, lo avisaremos dentro de la app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">13. Contacto</h3>
+        <p>¿Dudas sobre estos términos? Escríbenos a <a href="mailto:gapcode@protonmail.com" style="color: var(--brand-text); font-weight: 500;">gapcode@protonmail.com</a>.</p>
+      </div>
+    </div>
+
+    <div data-lang-block="en" hidden style="max-width: 800px; color: var(--ink-2); font-size: 16px; display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">1. What Condo is and who these terms apply to</h3>
+        <p>Condo is a condominium management platform (Android app <code>com.condowner.app</code> and web panel) developed by GenaroPadron. It is used by the condominium's management or board, residents and gatehouse staff. By creating an account or using Condo you agree to these terms. If you do not agree, do not use the platform.</p>
+        <p>If you are a management company or board that contracted Condo, the commercial conditions you agreed with us also apply; if anything in that agreement contradicts these terms, the agreement prevails.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">2. Accounts and roles</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>You join a condominium with the invitation code its management gives you, or by creating a new condominium if you are an administrator.</li><li>Your account details must be real. You are responsible for keeping your account secure and for what is done with it.</li><li>Management assigns roles (resident, gatehouse, board, management) and is responsible for removing access for anyone who no longer lives or works in the condominium.</li><li>Account holders must be adults or have permission from a parent or guardian.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">3. Management responsibilities</h3>
+        <p>The management or board of each condominium is responsible for:</p>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>The data it enters: units, coefficients or shares, fees, expenses, reserve fund, late fees and announcements.</li><li>Complying with condominium law, the condominium's bylaws and the data protection laws that apply to it. Regarding its residents' data, management decides what it is used for and Condo processes it on management's behalf to provide the service.</li><li>Carefully confirming or rejecting bank transfer and cash payments recorded by residents.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">4. Condominium fees and payments</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li><b>Your debt is with the condominium, not with Condo.</b> Amounts, due dates, late fees and discounts are set by management. Questions or complaints about what you owe are resolved with them.</li><li>Card payments are processed through external payment gateways (Stripe or Mercado Pago, depending on what your condominium has enabled) under their own terms. Condo does not see or store your full card details.</li><li>Bank transfer and cash payments are reflected once management confirms them. When any payment is confirmed, Condo issues a receipt.</li><li>Refunds of condominium fees are decided and handled by management.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">5. Platform plans</h3>
+        <p>Condo is contracted per condominium or per management company, with the plan and price agreed before anything is charged. Residents and gatehouse staff do not pay Condo to use the app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">6. QR passes, gatehouse and panic button</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>QR passes are personal. You are responsible for the visitors you authorize and for not sharing passes with anyone who should not have them.</li><li>The final decision to let someone in is made by gatehouse staff under the condominium's rules.</li><li><b>The panic button alerts the gatehouse and management, but it does not replace emergency services.</b> In an emergency, always call your country's emergency number.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">7. Announcements and votes</h3>
+        <p>Official announcements are published by management, which is responsible for their content. Condo records votes and their results, but their legal validity depends on the condominium's bylaws and the law of your country.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">8. Prohibited uses</h3>
+        <p>You may not use Condo for illegal activities, to harass or threaten other people, to post offensive content or content that infringes third-party rights, to impersonate someone else, to record false payments, or to try to access data of other condominiums or users.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">9. Service availability</h3>
+        <p>We work to keep Condo running and each condominium isolated from the others, but we cannot guarantee the service will be free of interruptions or errors. We may improve the platform and change features; if a change significantly affects what a management company contracted, we will let them know in advance.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">10. Liability</h3>
+        <p>We provide Condo with reasonable care. To the extent permitted by law, we are not liable for indirect damages, for decisions made by management or gatehouse staff, for the relationship between residents and the condominium, or for failures of third-party services such as payment gateways. Nothing in these terms limits any rights you have under the consumer protection laws of your country, including those of the European Economic Area and the United Kingdom, or excludes liability that cannot be excluded by law.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">11. Suspension and account closure</h3>
+        <p>You can delete your account from the app's Settings section or by asking your condominium's management, as explained in the <a href="privacidad.html" style="color: var(--brand-text); font-weight: 500;">Privacy Policy</a>. The condominium's accounting records (charges, payments and receipts) may be kept for as long as the law requires. We may suspend accounts or condominiums that seriously or repeatedly break these terms.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">12. Changes to these terms</h3>
+        <p>If we change these terms, we will update this page and its date. When the change is important, we will let you know in the app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">13. Contact</h3>
+        <p>Questions about these terms? Write to us at <a href="mailto:gapcode@protonmail.com" style="color: var(--brand-text); font-weight: 500;">gapcode@protonmail.com</a>.</p>
+      </div>
+    </div>
+
+    <div data-lang-block="pt" hidden style="max-width: 800px; color: var(--ink-2); font-size: 16px; display: flex; flex-direction: column; gap: 24px;">
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">1. O que é o Condo e a quem se aplicam estes termos</h3>
+        <p>O Condo é uma plataforma de administração de condomínios (app Android <code>com.condowner.app</code> e painel web) desenvolvida por GenaroPadron. É usada pela administração ou conselho do condomínio, pelos moradores e pela equipe de portaria. Ao criar uma conta ou usar o Condo, você aceita estes termos. Se não concordar, não use a plataforma.</p>
+        <p>Se você é uma administradora ou conselho que contratou o Condo, também se aplicam as condições comerciais acordadas conosco; se algo nesse acordo contradizer estes termos, prevalece o acordo.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">2. Contas e funções</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Você entra em um condomínio com o código de convite fornecido pela administração, ou criando um novo condomínio se for administrador.</li><li>Os dados da sua conta devem ser reais. Você é responsável por manter sua conta segura e pelo que for feito com ela.</li><li>A administração atribui as funções (morador, portaria, conselho, administração) e é responsável por retirar o acesso de quem deixar de morar ou trabalhar no condomínio.</li><li>O titular de uma conta deve ser maior de idade ou ter a permissão dos pais ou responsável.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">3. Responsabilidades da administração</h3>
+        <p>A administração ou conselho de cada condomínio é responsável por:</p>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Os dados que cadastra: unidades, frações ideais, taxas, despesas, fundo de reserva, multas por atraso e comunicados.</li><li>Cumprir a lei de condomínios, a convenção do condomínio e as leis de proteção de dados aplicáveis. Em relação aos dados dos moradores, a administração decide para que são usados e o Condo os trata em nome dela para prestar o serviço.</li><li>Confirmar ou rejeitar com critério os pagamentos por transferência e em dinheiro registrados pelos moradores.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">4. Taxas e pagamentos do condomínio</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li><b>A dívida é com o condomínio, não com o Condo.</b> Valores, vencimentos, multas e descontos são definidos pela administração. Dúvidas ou reclamações sobre o que você deve são resolvidas com ela.</li><li>Os pagamentos com cartão são processados por gateways de pagamento externos (Stripe ou Mercado Pago, conforme o que seu condomínio ativou) sob suas próprias condições. O Condo não vê nem guarda os dados completos do seu cartão.</li><li>Os pagamentos por transferência ou em dinheiro aparecem quando a administração os confirma. Ao confirmar qualquer pagamento, o Condo gera um recibo.</li><li>Devoluções de taxas do condomínio são decididas e geridas pela administração.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">5. Planos da plataforma</h3>
+        <p>O Condo é contratado por condomínio ou por administradora, com o plano e o preço acordados antes de qualquer cobrança. Moradores e equipe de portaria não pagam ao Condo para usar o app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">6. Passes QR, portaria e botão de pânico</h3>
+        <ul style="margin-top: 10px; margin-left: 20px; display: flex; flex-direction: column; gap: 8px;"><li>Os passes QR são pessoais. Você é responsável pelas visitas que autoriza e por não compartilhar passes com quem não deve.</li><li>A decisão final de deixar alguém entrar é da equipe de portaria, conforme as normas do condomínio.</li><li><b>O botão de pânico avisa a portaria e a administração, mas não substitui os serviços de emergência.</b> Em uma emergência, ligue sempre para o número de emergência do seu país.</li></ul>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">7. Comunicados e votações</h3>
+        <p>Os comunicados oficiais são publicados pela administração, que é responsável pelo seu conteúdo. O Condo registra as votações e seus resultados, mas a validade legal depende da convenção do condomínio e da lei do seu país.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">8. Usos não permitidos</h3>
+        <p>Você não pode usar o Condo para atividades ilegais, para assediar ou ameaçar outras pessoas, para publicar conteúdo ofensivo ou que viole direitos de terceiros, para se passar por outra pessoa, para registrar pagamentos falsos ou para tentar acessar dados de outros condomínios ou usuários.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">9. Disponibilidade do serviço</h3>
+        <p>Trabalhamos para que o Condo funcione sempre e cada condomínio fique isolado dos demais, mas não podemos garantir que o serviço não tenha interrupções ou erros. Podemos melhorar a plataforma e mudar funções; se uma mudança afetar de forma importante o que uma administradora contratou, avisaremos com antecedência.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">10. Responsabilidade</h3>
+        <p>Oferecemos o Condo com um cuidado razoável. Na medida permitida por lei, não respondemos por danos indiretos, por decisões da administração ou da portaria, pela relação entre moradores e condomínio nem por falhas de serviços de terceiros como gateways de pagamento. Nada nestes termos limita os direitos que você tem pelas leis de proteção ao consumidor do seu país, incluindo as do Espaço Econômico Europeu e do Reino Unido, nem exclui a responsabilidade que a lei não permite excluir.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">11. Suspensão e encerramento</h3>
+        <p>Você pode excluir sua conta na seção Ajustes do app ou pedindo à administração do seu condomínio, como explicado na <a href="privacidad.html" style="color: var(--brand-text); font-weight: 500;">Política de Privacidade</a>. Os registros contábeis do condomínio (cobranças, pagamentos e recibos) podem ser mantidos pelo tempo exigido por lei. Podemos suspender contas ou condomínios que descumpram estes termos de forma grave ou reiterada.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">12. Alterações nestes termos</h3>
+        <p>Se alterarmos estes termos, atualizaremos esta página e sua data. Quando a mudança for importante, avisaremos dentro do app.</p>
+      </div>
+
+      <div>
+        <h3 style="color: var(--ink); margin-bottom: 12px; font-size: 24px;">13. Contato</h3>
+        <p>Dúvidas sobre estes termos? Escreva para <a href="mailto:gapcode@protonmail.com" style="color: var(--brand-text); font-weight: 500;">gapcode@protonmail.com</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="condo.html#top"><img src="images/condo/icono.png" alt="" width="48" height="48" /><span>CONDO</span></a>
+        <p data-i18n="foot.about">Administración de condominios para residentes, garita y administración. Un producto de GenaroPadron.</p>
+      </div>
+      <div class="foot-col">
+        <b data-i18n="foot.contact">CONTACTO</b>
+        <a href="mailto:gapcode@protonmail.com">gapcode@protonmail.com</a>
+        <a href="https://wa.me/17542313968" target="_blank" rel="noopener">WhatsApp +1 754 231 3968</a>
+        <a href="index.html">genaropadron.com</a>
+      </div>
+      <div class="foot-col">
+        <b data-i18n="foot.legal">LEGAL</b>
+        <a href="privacidad.html" data-i18n="foot.privacy">Política de Privacidad</a>
+        <a href="condo-terminos.html" data-i18n="foot.terms">Términos y Condiciones</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="year"></span> Condo. <span data-i18n="foot.rights">Todos los derechos reservados.</span></span>
+      <code>com.condowner.app</code>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // Esta pagina tenia copiado el script completo de condo.html. Ese codigo
+  // buscaba el horizonte de edificios, que aqui no existe, y lanzaba un error
+  // que cortaba todo lo que venia despues. Se deja solo lo que esta pagina usa.
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  $("#year").textContent = new Date().getFullYear();
+
+  /* ---------- tema ---------- */
+  var MOON = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+  var SUN = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>';
+  function setTheme(mode) {
+    if (mode === "dark") document.documentElement.setAttribute("data-theme", "dark");
+    else document.documentElement.removeAttribute("data-theme");
+    $("#themeIcon").innerHTML = mode === "dark" ? SUN : MOON;
+  }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem("condo-theme"); } catch (e) {}
+  setTheme(savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  $("#themeBtn").addEventListener("click", function () {
+    var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    setTheme(next);
+    try { localStorage.setItem("condo-theme", next); } catch (e) {}
+  });
+
+  /* ---------- idiomas ---------- */
+  // Misma clave de almacenamiento que condo.html: el idioma elegido en una
+  // pagina se mantiene al pasar a la otra.
+  var I18N =
+  {
+    "es": {
+      "nav.sections": "Secciones",
+      "nav.home": "Condo, inicio",
+      "nav.how": "Cómo funciona",
+      "nav.passes": "Pases QR",
+      "nav.accounts": "Cuentas claras",
+      "nav.contact": "Contacto",
+      "nav.theme": "Cambiar tema",
+      "nav.language": "Idioma",
+      "cta.demo": "Solicitar una demo",
+      "foot.about": "Administración de condominios para residentes, garita y administración. Un producto de GenaroPadron.",
+      "foot.contact": "CONTACTO",
+      "foot.legal": "LEGAL",
+      "foot.privacy": "Política de Privacidad",
+      "foot.rights": "Todos los derechos reservados.",
+      "meta.title": "Términos y Condiciones — Condo",
+      "meta.desc": "Términos y Condiciones de uso de Condo, la plataforma de administración de condominios para residentes, garita y administración.",
+      "legal.eyebrow": "Legal",
+      "legal.title": "Términos y Condiciones",
+      "legal.updated": "Última actualización: 16 de noviembre de 2026",
+      "meta.ogTitle": "Términos y Condiciones — Condo",
+      "meta.ogDesc": "Términos y Condiciones de uso de Condo, la plataforma de administración de condominios para residentes, garita y administración.",
+      "foot.terms": "Términos y Condiciones"
+    },
+    "en": {
+      "nav.sections": "Sections",
+      "nav.home": "Condo, home",
+      "nav.how": "How it works",
+      "nav.passes": "QR passes",
+      "nav.accounts": "Clear accounts",
+      "nav.contact": "Contact",
+      "nav.theme": "Switch theme",
+      "nav.language": "Language",
+      "cta.demo": "Request a demo",
+      "foot.about": "Condominium management for residents, security desk and management. A GenaroPadron product.",
+      "foot.contact": "CONTACT",
+      "foot.legal": "LEGAL",
+      "foot.privacy": "Privacy Policy",
+      "foot.rights": "All rights reserved.",
+      "meta.title": "Terms and Conditions — Condo",
+      "meta.desc": "Terms and Conditions of use of Condo, the condominium management platform for residents, gatehouse and management.",
+      "legal.eyebrow": "Legal",
+      "legal.title": "Terms and Conditions",
+      "legal.updated": "Last updated: November 16, 2026",
+      "meta.ogTitle": "Terms and Conditions — Condo",
+      "meta.ogDesc": "Terms and Conditions of use of Condo, the condominium management platform for residents, gatehouse and management.",
+      "foot.terms": "Terms and Conditions"
+    },
+    "pt": {
+      "nav.sections": "Seções",
+      "nav.home": "Condo, início",
+      "nav.how": "Como funciona",
+      "nav.passes": "Passes QR",
+      "nav.accounts": "Contas claras",
+      "nav.contact": "Contato",
+      "nav.theme": "Alternar tema",
+      "nav.language": "Idioma",
+      "cta.demo": "Solicitar uma demo",
+      "foot.about": "Gestão de condomínios para moradores, portaria e administração. Um produto GenaroPadron.",
+      "foot.contact": "CONTATO",
+      "foot.legal": "LEGAL",
+      "foot.privacy": "Política de Privacidade",
+      "foot.rights": "Todos os direitos reservados.",
+      "meta.title": "Termos e Condições — Condo",
+      "meta.desc": "Termos e Condições de uso do Condo, a plataforma de administração de condomínios para moradores, portaria e administração.",
+      "legal.eyebrow": "Legal",
+      "legal.title": "Termos e Condições",
+      "legal.updated": "Última atualização: 16 de novembro de 2026",
+      "meta.ogTitle": "Termos e Condições — Condo",
+      "meta.ogDesc": "Termos e Condições de uso do Condo, a plataforma de administração de condomínios para moradores, portaria e administração.",
+      "foot.terms": "Termos e Condições"
+    }
+  };
+
+  var lang = (function () {
+    try { var saved = localStorage.getItem("condo-lang"); if (saved && I18N[saved]) return saved; } catch (e) {}
+    var nav = (navigator.language || "es").slice(0, 2).toLowerCase();
+    return I18N[nav] ? nav : "es";
+  })();
+
+  function t(key) {
+    var d = I18N[lang];
+    if (d && d[key] != null) return d[key];
+    return I18N.es[key] != null ? I18N.es[key] : key;
+  }
+  function setMeta(sel, value) { var n = $(sel); if (n) n.setAttribute("content", value); }
+
+  function applyI18n() {
+    document.documentElement.lang = lang;
+    $$("[data-i18n]").forEach(function (n) { n.textContent = t(n.getAttribute("data-i18n")); });
+    $$("[data-i18n-html]").forEach(function (n) { n.innerHTML = t(n.getAttribute("data-i18n-html")); });
+    $$("[data-i18n-attr]").forEach(function (n) {
+      n.getAttribute("data-i18n-attr").split(",").forEach(function (pair) {
+        var kv = pair.split(":");
+        n.setAttribute(kv[0].trim(), t(kv[1].trim()));
+      });
+    });
+    $$("[data-lang-block]").forEach(function (n) { n.hidden = n.getAttribute("data-lang-block") !== lang; });
+    document.title = t("meta.title");
+    setMeta('meta[name="description"]', t("meta.desc"));
+    setMeta('meta[property="og:title"]', t("meta.ogTitle"));
+    setMeta('meta[property="og:description"]', t("meta.ogDesc"));
+    var sel = $("#langSel");
+    if (sel) sel.value = lang;
+  }
+  applyI18n();
+
+  $("#langSel").addEventListener("change", function () {
+    lang = I18N[this.value] ? this.value : "es";
+    try { localStorage.setItem("condo-lang", lang); } catch (e) {}
+    applyI18n();
+  });
+})();
+</script>
+</body>
+</html>
